@@ -16,6 +16,16 @@
 <body>
 <div class="nav">
             <div class="cent">
+
+            <div class="hanging_menu">
+                <div class="hanging_links">
+
+                </div>
+
+                <div class="cart">
+
+                </div>
+            </div>
                 <div class="logo">
 
                 </div>
@@ -35,14 +45,42 @@
                     </div>
 
                     <div class="contact">
-                        
+                         <div class="icon">
+
+                        </div>
+
+                        <div class="text">
+                            <h4>1-800-1234-567</h4>
+                            <h4>Mon – Sat: 9:00–18:00</h4>
+                        </div>
                         </div>
 
                         <div class="contact">
-                        
+                           <div class="icon">
+
+                        </div>
+
+                        <div class="text">
+                            <h4>267 Park Avenue</h4>
+                            <h4>New York, NY 90210</h4>
+                        </div>
                         </div>
                 </div>
             </div>
+        </div>
+
+
+        <div class="bg_container">
+            <div class="overlay">
+
+            </div>
+        </div>
+
+
+        <div class="container sec1">
+                <div class="cent">
+                    
+                </div>
         </div>
 </body>
 <script src="js/min.js"></script>
