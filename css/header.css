@@ -13,6 +13,7 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Burned&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 :root{
     --shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -101,7 +102,10 @@ button:disabled{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: 'Chivo', sans-serif;
+    /* font-family: 'Chivo', sans-serif; */
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     /* text-transform: capitalize; */
     font-weight: 200;
     transition:.2s;
@@ -114,25 +118,7 @@ button:disabled{
 }
 
 
-.nav{
-    width:100%;
-    height:119px;
-    padding:1px;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:100000000;
-    background: transparent;
-    padding-top:1px;
-}
 
-.nav_cont{
-    width:1200px;
-    margin:20px auto;
-    height:30px;
-    display:flex;
-    justify-content: space-between;
-}
 
 h3{
     color:var(--accent);
@@ -152,28 +138,7 @@ h3{
     top:-11px;
 }
 
-.menu{
-    width:600px;
-    height:100%;
-}
 
-.menu ul{
-    display:flex;
-    align-items: center;
-    height:100%;
-    justify-content: flex-end;
-}
-
-.menu ul li{
-    /* margin:0 16px; */
-    text-transform: capitalize;
-    margin:0 30px;
-}
-
-.menu a{
-    color:white;
-    font-weight:400;
-}
 
 
 .hero{
@@ -184,12 +149,6 @@ h3{
     /* margin-top:148px; */
 }
 
-.nav span{
-    display:block;
-    margin:0px auto;
-    border-bottom:1px solid #39353e;
-    width:1200px;
-}
 
 
 
@@ -222,46 +181,14 @@ h3{
 
 .cent{
     width:1200px;
-    height:400px;
+    height:100%;
     margin:0 auto;
     padding-top:1px;
 }
 
-.user{
-    width:100%;
-    height:30px;
-    margin-top:225px;
-}
 
-.user h1{
-    width:100%;
-    text-align: center;
-    font-size:40px;
-    font-weight:600;
-    color:white;
-}
 
-.navigation{
-    width:100%;
-    height:30px;
-    margin-top:30px;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.navigation a, .navigation i{
-    color:white;
-    margin:0 10px;
-}
-
-.navigation i{
-    font-size:16px;
-}
-
-body{
-    overflow-y: hidden;
-}
 
 .loader{
     width:100%;
@@ -318,3 +245,42 @@ body{
       transform: rotate(360deg);
     }
   }
+
+
+.nav{
+    width:100%;
+    height:100px;
+    background: #202020;
+  }
+
+  .nav .cent{
+    display:flex;
+    justify-content:space-between;
+  }
+
+
+  .logo{
+    width:200px;
+    height:100%;
+  }
+
+  .menu{
+    width:800px;
+    height:100%;
+    display:flex;
+  }
+
+  .contact{
+    width:300px;
+    height:70px;
+    margin:16px 30px;
+  }
+
+  .icon{
+    width:50px;
+    height:100%;
+  }
+
+.text{
+    width:250px;
+}
