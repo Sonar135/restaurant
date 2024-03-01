@@ -47,12 +47,12 @@
 
                   <div class="user_cont">
                     <div class="ne">
-                        <a href="">account</a>
-                        <a href="">wishlist</a>
+                        <a href="account.php">account</a>
+                        <a href="wishlist.php">wishlist</a>
                     </div>
 
                     <div class="ne">
-                        <a href="">orders</a>
+                        <a href="orders.php">orders</a>
                         <a href="">logout</a>
                     </div>
                   </div>
