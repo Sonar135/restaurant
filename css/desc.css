@@ -5,7 +5,7 @@
 }
 
 
-.cent{
+.sec1 .cent{
     display:flex;
     height:90%;
 }
@@ -31,7 +31,7 @@
 .right{
     width:700px;
     height:100%;
-    padding:10px 20px 0;
+    padding:10px 30px ;
 }
 
 .right h3{
@@ -92,6 +92,15 @@
     border-radius: 50%;
     background: var(--accent);
     box-shadow: var(--shadow);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor:pointer;
+  }
+
+  .minus i, .plus i{
+    color:white;
+    font-size:18px;
   }
 
   .select input{
@@ -102,4 +111,16 @@
     text-align: center;
     font-weight:500;
     font-size:18px;
+
+  }
+
+
+  .right button{
+    margin:20px 0;
+    width:102px;
+    padding:0;
+    height:40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
   }

@@ -45,22 +45,160 @@
 
                             <h4>Select Quantity</h4>
 
-                            <div class="select">
+                          <form action=""> <div class="select">
                                 <div class="minus">
-
+                                <i class="fa-solid fa-minus"></i>
                                 </div>
 
                                 <input type="text" readonly value="1">
 
                                 <div class="plus">
-
+                                <i class="fa-solid fa-plus"></i>
                                 </div>
                             </div>
-          
+
+
+                            <button> Cart</button>
+                            <button> Wishlist</button>
+                            </form> 
           
                         </div>
 
                 
+            </div>
+        </div>
+
+
+        <div class="container sec2">
+            <div class="cent">
+                <h1>related Items</h1>
+
+                <div class="our_best">
+                         <div class="best_card">
+
+                            <div class="card_seller">
+                                kfc
+                            </div>
+                            <div class="food_img">
+                                <img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt="">
+                            </div>
+
+                            <div class="name">
+                                <h4>yellow pasta</h4>
+                            </div>
+
+                            <div class="star_array">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            </div>
+
+                            <div class="name">
+                                <h4>₦8000</h4>
+                            </div>
+
+                            <div class="actions">
+                                <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div>
+                                <div class="ico"><i class="fa-solid fa-heart"></i></div>
+                                <a href="desc.php?id=1"><div class="ico"><i class="fa-solid fa-eye"></i></div></a> 
+                            </div>
+                        </div>
+                             <div class="best_card">
+
+                            <div class="card_seller">
+                                kfc
+                            </div>
+                            <div class="food_img">
+                                <img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt="">
+                            </div>
+
+                            <div class="name">
+                                <h4>yellow pasta</h4>
+                            </div>
+
+                            <div class="star_array">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            </div>
+
+                            <div class="name">
+                                <h4>₦8000</h4>
+                            </div>
+
+                            <div class="actions">
+                                <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div>
+                                <div class="ico"><i class="fa-solid fa-heart"></i></div>
+                                <a href="desc.php?id=1"><div class="ico"><i class="fa-solid fa-eye"></i></div></a> 
+                            </div>
+                        </div>
+                             <div class="best_card">
+
+                            <div class="card_seller">
+                                kfc
+                            </div>
+                            <div class="food_img">
+                                <img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt="">
+                            </div>
+
+                            <div class="name">
+                                <h4>yellow pasta</h4>
+                            </div>
+
+                            <div class="star_array">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            </div>
+
+                            <div class="name">
+                                <h4>₦8000</h4>
+                            </div>
+
+                            <div class="actions">
+                                <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div>
+                                <div class="ico"><i class="fa-solid fa-heart"></i></div>
+                                <a href="desc.php?id=1"><div class="ico"><i class="fa-solid fa-eye"></i></div></a> 
+                            </div>
+                        </div>
+                             <div class="best_card">
+
+                            <div class="card_seller">
+                                kfc
+                            </div>
+                            <div class="food_img">
+                                <img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt="">
+                            </div>
+
+                            <div class="name">
+                                <h4>yellow pasta</h4>
+                            </div>
+
+                            <div class="star_array">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            </div>
+
+                            <div class="name">
+                                <h4>₦8000</h4>
+                            </div>
+
+                            <div class="actions">
+                                <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div>
+                                <div class="ico"><i class="fa-solid fa-heart"></i></div>
+                                <a href="desc.php?id=1"><div class="ico"><i class="fa-solid fa-eye"></i></div></a> 
+                            </div>
+                        </div>
+                </div>
             </div>
         </div>
 

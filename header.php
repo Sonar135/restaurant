@@ -53,7 +53,7 @@
 
                     <div class="ne">
                         <a href="orders.php">orders</a>
-                        <a href="">logout</a>
+                        <a href="reg.php">logout</a>
                     </div>
                   </div>
                   </li>
