@@ -70,18 +70,10 @@
         </div>
 
 
-        <div class="bg_container">
-            <div class="overlay">
-
-            </div>
-        </div>
+     
 
 
-        <div class="container sec1">
-                <div class="cent">
-                    
-                </div>
-        </div>
+      
 </body>
 <script src="js/min.js"></script>
 <script src="js/dom.js"></script>

@@ -1,0 +1,184 @@
+.sec1{
+    height:900px;
+    margin-top:80px;
+  }
+
+
+  .our_best{
+    width:100%;
+    height:800px;
+    margin-top:80px;
+    display:flex;
+    flex-wrap: wrap;
+  }
+
+  .best_card{
+    width:260px;
+    height:360px;
+    margin:30px 16px;
+    border-radius:16px 16px 0 0;
+    box-shadow: var(--shadow);
+  }
+
+  
+  .food_img{
+    width:100%;
+    height:160px;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    overflow: hidden;
+    border-radius:16px 16px 0 0;
+  }
+
+  .food_img img{
+    width:auto;
+    height:100%;
+    width:100%;
+    object-fit:cover;
+  }
+
+  .best_card .name,   .chef_card .name{
+    text-transform: capitalize;
+    color:black;
+    margin:20px 0;
+  }
+
+  .best_card h4,   .chef_card h4{
+    width:100%;
+    text-align: center;
+  }
+
+  .star_array{
+    width:100%;
+    margin:20px 0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .star_array i{
+    margin:0 5px;
+    color:var(--accent);
+    font-size:18px;
+  }
+
+  .actions{
+    width:100%;
+    height:26px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .actions .ico{
+    width:30px;
+    height:30px;
+    border-radius:4px;
+    margin:0 18px;
+    border: 1px solid var(--accent);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor:pointer;
+  }
+
+  .ico i{
+    font-size:14px;
+    color:var(--accent);
+  }
+
+
+  .sec2{
+    margin-top:100px;
+    height:600px;
+  }
+
+  .chef_container{
+    width:100%;
+    height:500px;
+    margin-top:80px;
+    display:flex;
+    flex-wrap: wrap;
+  }
+
+  .chef_card{
+    width:260px;
+    height:330px;
+    margin:30px 16px;
+    border-radius:16px 16px 0 0;
+    box-shadow: var(--shadow);
+  }
+
+
+  .chef_img{
+    width:100%;
+    height:180px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img_circle{
+    width:170px;
+    height:170px;
+    border-radius: 100px;
+    background: var(--accent);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow);
+  }
+
+  .inner_cir{
+    width:150px;
+    height:150px;
+    border-radius: 100px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    overflow:hidden;
+  }
+
+  .inner_cir img{
+    width:auto;
+    height:100%;
+    width:100%;
+    object-fit:cover;
+  }
+
+
+  .chef_card h1{
+    text-align: center;
+    font-size:24px;
+  }
+
+  .chef_card h4{
+    font-size:20px;
+  }
+
+
+  .chef_links{
+    width:100%;
+    height:30px;
+    margin:20px 0;
+    display:flex;
+    justify-content: center;
+  }
+
+
+  .chef_links .cir{
+    width:30px;
+    height:30px;
+    background: var(--disabled);
+    margin:0 7px;
+    border-radius: 100px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cir i{
+    color:var(--accent);
+    font-size:18px;
+  }
