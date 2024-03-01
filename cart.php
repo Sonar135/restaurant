@@ -4,8 +4,6 @@
 
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +27,7 @@
 
             <section>
   <!--for demo wrap-->
-  <h1>WISHLIST</h1>
+  <h1>CART</h1>
   <div class="tbl-header">
     <table cellpadding="0" cellspacing="0" border="0">
       <thead>
@@ -37,6 +35,8 @@
           <th>image</th>
           <th>item</th>
           <th>Price</th>
+          <th>quantity</th>
+          <th>total</th>
           <th>view</th>
           <th>delete</th>
         </tr>
@@ -50,11 +50,31 @@
           <td><div class="img_con"><img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt=""></div></td>
           <td><h3>food</h3> </td>
           <td><h3>₦12000</h3></td>
+          <td><h3>6</h3></td>
+          <td><h3>₦30000</h3></td>
           <td id="ico"><div class="tb_ico"><i class="fa-solid fa-eye"></i></div></td>
           <td id="ico"><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></td>
         </tr>
 
+        <tr>
+          <td><div class="img_con"><img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt=""></div></td>
+          <td><h3>food</h3> </td>
+          <td><h3>₦12000</h3></td>
+          <td><h3>6</h3></td>
+          <td><h3>₦30000</h3></td>
+          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-eye"></i></div></td>
+          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></td>
+        </tr>
 
+        <tr>
+          <td><div class="img_con"><img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt=""></div></td>
+          <td><h3>food</h3> </td>
+          <td><h3>₦12000</h3></td>
+          <td><h3>6</h3></td>
+          <td><h3>₦30000</h3></td>
+          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-eye"></i></div></td>
+          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></td>
+        </tr>
 
       </tbody>
     </table>
@@ -63,6 +83,5 @@
 
             </div>
         </div>
-
 </body>
 </html>

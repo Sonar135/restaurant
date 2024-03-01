@@ -11,8 +11,7 @@ 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
 
 
 
-width:260px;
-    height:360px;
-    margin:30px 16px;
-    border-radius:16px 16px 0 0;
-    box-shadow: var(--shadow);
+      width:auto;
+    height:100%;
+    width:100%;
+    object-fit:cover;

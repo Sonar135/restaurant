@@ -30,6 +30,10 @@
 
                     <div class="our_best">
                         <div class="best_card">
+
+                            <div class="card_seller">
+                                kfc
+                            </div>
                             <div class="food_img">
                                 <img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt="">
                             </div>
@@ -53,7 +57,7 @@
                             <div class="actions">
                                 <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div>
                                 <div class="ico"><i class="fa-solid fa-heart"></i></div>
-                                <div class="ico"><i class="fa-solid fa-eye"></i></div>
+                                <a href="desc.php?id=1"><div class="ico"><i class="fa-solid fa-eye"></i></div></a> 
                             </div>
                         </div>
                         <div class="best_card">

@@ -37,8 +37,8 @@
           <th>Price</th>
           <th>quantity</th>
           <th>total</th>
-          <th>view</th>
-          <th>delete</th>
+          <th>date</th>
+          <th>buy again</th>
         </tr>
       </thead>
     </table>
@@ -52,29 +52,11 @@
           <td><h3>₦12000</h3></td>
           <td><h3>6</h3></td>
           <td><h3>₦30000</h3></td>
-          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-eye"></i></div></td>
-          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></td>
+          <td><h3>10/3/24 12:30</h3></td>
+          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-cart-shopping"></i></div></td>
         </tr>
 
-        <tr>
-          <td><div class="img_con"><img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt=""></div></td>
-          <td><h3>food</h3> </td>
-          <td><h3>₦12000</h3></td>
-          <td><h3>6</h3></td>
-          <td><h3>₦30000</h3></td>
-          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-eye"></i></div></td>
-          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></td>
-        </tr>
-
-        <tr>
-          <td><div class="img_con"><img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt=""></div></td>
-          <td><h3>food</h3> </td>
-          <td><h3>₦12000</h3></td>
-          <td><h3>6</h3></td>
-          <td><h3>₦30000</h3></td>
-          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-eye"></i></div></td>
-          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></td>
-        </tr>
+ 
 
       </tbody>
     </table>

@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/b782cf5553.js" crossorigin="anonymous"></script>  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ChowDown</title>
 </head>
 <body>
 <div class="nav">
@@ -25,18 +25,18 @@
 
                     <div class="menu_cont">
                     <div class="ne">
-                        <a href="">account</a>
-                        <a href="">wishlist</a>
+                        <a href="menu.php">intercontinental</a>
+                        <a href="">Local</a>
                     </div>
 
                     <div class="ne">
-                        <a href="">orders</a>
-                        <a href="">logout</a>
+                        <a href="">Fast Food</a>
+                        <a href="">Drinks</a>
                     </div>
 
                     <div class="ne">
-                        <a href="">orders</a>
-                        <a href="">logout</a>
+                        <a href="">Pastries</a>
+                        <a href="">other</a>
                     </div>
                     </div>
                     </li>
@@ -57,12 +57,12 @@
                     </div>
                   </div>
                   </li>
-                    <a href="">Restaurant</a>
+                  
                 </ul>
                 </div>
 
                 <div class="cart">
-             <a href=""> <i class="fa-solid fa-cart-shopping"></i></a>  
+             <a href="cart.php"> <i class="fa-solid fa-cart-shopping"></i></a>  
                 </div>
             </div>
                 <div class="logo">
