@@ -4,6 +4,17 @@
   }
 
 
+  .bg_container{
+    width:100%;
+    height:660px;
+    position:relative;
+    background: url("../images/stock-photo-beautiful-and-tasty-food-on-a-plate-361383083.jpg")right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 30%;
+}
+
+
   .our_best{
     width:100%;
     height:800px;

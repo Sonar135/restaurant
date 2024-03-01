@@ -1,0 +1,15 @@
+.sec1{
+    height:auto;
+    min-height:400px;
+    margin-top:100px;
+}
+
+
+.sec1 .cent{
+    height:auto;
+    min-height:400px;
+    display:flex;
+    flex-wrap:wrap;
+}
+
+

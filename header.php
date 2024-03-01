@@ -20,10 +20,43 @@
             <div class="hanging_menu">
                 <div class="hanging_links">
                 <ul>
-                    <a href="">Home</a>
-                    <a href="">Menu</a>
-                    <a href="">Search</a>
-                    <a href="">You</a>
+                    <a href="main.php">Home</a>
+                    <li id="menu">menu
+
+                    <div class="menu_cont">
+                    <div class="ne">
+                        <a href="">account</a>
+                        <a href="">wishlist</a>
+                    </div>
+
+                    <div class="ne">
+                        <a href="">orders</a>
+                        <a href="">logout</a>
+                    </div>
+
+                    <div class="ne">
+                        <a href="">orders</a>
+                        <a href="">logout</a>
+                    </div>
+                    </div>
+                    </li>
+
+                    <a href="search.php">Search</a>
+
+                  <li id="you">you
+
+                  <div class="user_cont">
+                    <div class="ne">
+                        <a href="">account</a>
+                        <a href="">wishlist</a>
+                    </div>
+
+                    <div class="ne">
+                        <a href="">orders</a>
+                        <a href="">logout</a>
+                    </div>
+                  </div>
+                  </li>
                     <a href="">Restaurant</a>
                 </ul>
                 </div>
