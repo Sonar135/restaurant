@@ -19,11 +19,17 @@
 
             <div class="hanging_menu">
                 <div class="hanging_links">
-
+                <ul>
+                    <a href="">Home</a>
+                    <a href="">Menu</a>
+                    <a href="">Search</a>
+                    <a href="">You</a>
+                    <a href="">Restaurant</a>
+                </ul>
                 </div>
 
                 <div class="cart">
-
+             <a href=""> <i class="fa-solid fa-cart-shopping"></i></a>  
                 </div>
             </div>
                 <div class="logo">

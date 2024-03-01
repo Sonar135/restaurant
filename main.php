@@ -218,5 +218,42 @@
                 </div>
             </div>
         </div>
+
+        <div class="container sec3">
+            <div class="cent">
+                <div class="bean_cont">
+                    <div class="beans">
+                 
+                      <h4>Weekly Best Seller</h4>
+                  
+                      
+
+                        <div class="chicken">
+                         <h1>   Fried Chicken</h1>
+                        </div>
+
+                        <p>Neque porro quisquam est qui dolor ipsum quia dolor sit ametsed.</p>
+
+                        <button>get now</button>
+                      
+                    </div>
+
+                    <div class="beans" id="sec">
+                          <h4>Daily Offerr</h4>
+                  
+                      
+
+                        <div class="chicken">
+                         <h1> Hyderabadi Biryani</h1>
+                        </div>
+
+                        <p>Neque porro quisquam est qui dolor ipsum quia dolor sit ametsed.</p>
+
+                        <button>get now</button>
+                      
+                        </div>
+                </div>
+            </div>
+        </div>
 </body>
 </html>
