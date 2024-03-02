@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2024 at 11:45 AM
+-- Generation Time: Mar 02, 2024 at 02:26 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -84,7 +84,8 @@ CREATE TABLE `restaurant` (
   `phone` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL
+  `address` varchar(255) DEFAULT NULL,
+  `user_type` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -99,8 +100,16 @@ CREATE TABLE `users` (
   `phone` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL
+  `address` varchar(255) DEFAULT NULL,
+  `user_type` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `phone`, `password`, `email`, `address`, `user_type`) VALUES
+(1, 'Victor Efidi okechukwu', 'vefidi135@gmail.com', '$2y$10$s0u3UbQb8FjQYkzui/pReuFNBaEPny2ongwff88ikXJ2peV.HS9fi', 'vefidi135@gmail.com', NULL, 'user');
 
 -- --------------------------------------------------------
 
@@ -191,7 +200,7 @@ ALTER TABLE `restaurant`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
