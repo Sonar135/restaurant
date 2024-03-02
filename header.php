@@ -80,7 +80,7 @@
                         if($user_type=="restaurant"){
                             echo '
                             <a href="stock.php">My Stock</a>
-                            <a href="stock.php">Add Product</a>
+                            <a href="add_prod.php#lock">Add Product</a>
                             <a href="logout.php">logout</a>
                             ';
                         }

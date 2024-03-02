@@ -130,7 +130,7 @@
 
 <?php
     if(isset($_POST['login'])){
-        $email=$_POST['email'];
+        $name=$_POST['name'];
         $password=$_POST['password'];
 
 
@@ -235,7 +235,7 @@
                   
 
                     <div class="ne_log">
-                        <input type="email" placeholder="email" name="email">
+                        <input type="text" placeholder="restaurant" name="name">
                     </div>
 
                     <div class="ne_log">

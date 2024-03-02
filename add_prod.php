@@ -4,6 +4,23 @@
 
 
 
+<?php
+    if(isset($_POST["submit"])){
+        $name=htmlentities($_POST["name"]);
+        $desc=htmlentities($_POST["desc"]);
+        $category=htmlentities($_POST["category"]);
+        $quantity=$_POST["quantity"];
+        $price=$_POST["price"];
+
+        $picture=$_FILES["image"]['name'];
+        $temp_img=$_FILES['image']['tmp_name']
+
+
+        $insert=mysqli_query($conn, "INSERT into item ()")
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +46,7 @@
                     </div>
                 </div>
 
-           <form action="" method="post">  <div class="right">
+           <form action="" method="post" id="lock"   enctype="multipart/form-data">  <div class="right">
                     <h1>Add Food</h1>
 
                     <div class="n_e">
@@ -64,7 +81,7 @@
                         <label for="image" class="label">
                             image
                         </label>
-                        <input type="file" accept="image/*" name="conpass" hidden id="image">
+                        <input type="file" accept="image/*" name="image" hidden id="image">
                     </div>
 
                   
@@ -74,7 +91,7 @@
                     </div>
 
                
-                        <textarea name="" id="" cols="30" rows="10" placeholder="item description"></textarea>
+                        <textarea name="desc" id="" cols="30" rows="10" placeholder="item description"></textarea>
                  
 
                     <button name="submit">submit</button>

@@ -286,7 +286,7 @@
 
     function empty_res_login($name, $password){
         $result;
-        if($email=="" or $password==""){
+        if($name=="" or $password==""){
             $result= true;
         }
         else {
