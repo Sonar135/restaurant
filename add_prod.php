@@ -41,6 +41,26 @@
 
                         <div class="select">
                             select category
+
+                            <div class="selections">
+                                <ul>
+                                    <li id="list">
+                                       intercontinental
+                                    </li>
+                                    <li id="list">
+                                       local
+                                       </li>
+                                       <li id="list">
+                                       fast foods
+                                       </li>
+                                       <li id="list">
+                                       drinks
+                                       </li>
+                                       <li id="list">
+                                       pastries
+                                       </li>
+                                </ul>
+                            </div>
                         </div>
                         <input type="text" placeholder="" name="category" hidden>
 
@@ -60,7 +80,7 @@
                         <textarea name="" id="" cols="30" rows="10" placeholder="item description"></textarea>
                  
 
-                    <button name="signup">submit</button>
+                    <button name="submit">submit</button>
                 </div></form>  
             </div>
 

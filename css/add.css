@@ -104,6 +104,54 @@ button{
     display:flex;
     justify-content: center;
     align-items: center;
+    position:relative;
+}
+
+.selections{
+    position:absolute;
+    width:100%;
+    height:250px;
+    top:30px;
+    left:0;
+    background: var(--accent);
+    display:none;
+    animation: fade_in_abs3 .8s;
+}
+
+
+.select:hover .selections{
+    display:block;
+}
+
+
+@keyframes fade_in_abs3 {
+    from{
+      opacity:0;
+      top:60px;
+    }
+  
+    to{
+      opacity:1;
+      top:30px;
+    }
+  }
+
+.selections ul{
+    width:100;
+    height:100%;
+}
+
+.selections ul li{
+    width:100%;
+    text-align: center;
+    color:white;
+    font-weight:500;
+    margin:25px 0;
+    cursor:pointer;
+}
+
+.selections li:hover{
+    background: var(--accent_hover);
 }
 
 .n_e label{
