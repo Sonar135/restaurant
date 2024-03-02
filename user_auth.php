@@ -112,7 +112,7 @@
  
         }
 
-        if(sup_email_exists($conn, $email)!== false){
+        if(email_exists($conn, $email)!== false){
             header("location: user_auth.php?error=email_in_use");
       
             exit();
