@@ -3,66 +3,39 @@
 
 
     
-    function create_student($conn, $email, $fname, $department, $phone, $password, $confirm , $matric, $year, $prefi){
+    function create_user($conn, $email, $fname,  $phone, $password, $confirm ){
 
-        $user_type="student";
+        $user_type="user";
   
-        $insert= "INSERT INTO students (name,  phone, matric,  email, prefix, department, year, password, user_type) VALUES (?,?,?,?,?,?,?,?,?)";   
+        $insert= "INSERT INTO users (name,  phone, email,  password, user_type) VALUES (?,?,?,?,?)";   
         
       
 
-        if($insert){
-            mysqli_query($conn, "INSERT into week1 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week2 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week3 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week4 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week5 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week6 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week7 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week8 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week9 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week10 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week11 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week12 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week13 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week14 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week15 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week16 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week17 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week18 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week19 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week20 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week21 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week22 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week23 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week24 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week25 (matric_no) values('$matric')");
-            mysqli_query($conn, "INSERT into week26 (matric_no) values('$matric')");
-        }
+  
 
         $stmt2=mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt2, $insert)){
-            header("location: student_auth.php?error=stmtfailed");
+            header("location: user_auth.php?error=stmtfailed");
             exit();
         }
     
         
         $hashed_pwd=password_hash($password, PASSWORD_DEFAULT);
 
-        mysqli_stmt_bind_param($stmt2, 'sssssssss', $fname, $phone, $matric,  $email, $prefix, $department, $year, $hashed_pwd, $user_type);
+        mysqli_stmt_bind_param($stmt2, 'sssss', $fname, $phone,  $email,  $hashed_pwd, $user_type);
         mysqli_stmt_execute($stmt2);
         mysqli_stmt_close($stmt2);
         
-        header("location: student_auth.php?error=success");
+        header("location: user_auth.php?error=success");
         exit();
     }
 
 
 
-    function emptysignup($email, $fname, $department, $phone, $password, $confirm , $matric, $year){
+    function emptysignup($email, $fname, $phone, $password, $confirm ){
         $result;
-        if($email=="" or $fname=="" or $department=="" or $phone=="" or $password=="" or $confirm=="" or $matric=="" or $year==""){
+        if($email=="" or $fname=="" or   $phone=="" or $password=="" or $confirm==""){
             $result= true;
         }
         else {
@@ -126,12 +99,12 @@
     function email_exists($conn, $email){
         $result;
     
-        $query="SELECT * FROM students WHERE email=?";
+        $query="SELECT * FROM users WHERE email=?";
     
         $stmt=mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $query)){
-            header("location: super_auth.php?error=stmtfailed");
+            header("location: user_auth.php?error=stmtfailed");
             exit();
         }
     
@@ -192,7 +165,7 @@
         $uidexist= matric_exists($conn, $matric);
 
         if($uidexist===false){
-            header("location: student_auth.php?error=wrongLogin");
+            header("location: user_auth.php?error=wrongLogin");
             exit();
         }
 
@@ -200,7 +173,7 @@
         $checkedpwd=password_verify($password, $pwdHashed);
 
         if($checkedpwd===false){
-            header("location: student_auth.php?error=wrongLogin");
+            header("location: user_auth.php?error=wrongLogin");
             exit();
         }
 
@@ -208,7 +181,6 @@
             session_start();
 
             $_SESSION["id"]=$uidexist["id"];
-            $_SESSION['siwesid']=$uidexist['siwesid'];
             $_SESSION["email"]=$uidexist["email"];
             $_SESSION['phone']=$uidexist['phone'];
             $_SESSION['user_type']=$uidexist['user_type'];

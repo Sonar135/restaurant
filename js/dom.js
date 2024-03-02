@@ -29,7 +29,7 @@ $(window).on("load resize ", function() {
     })
     
     
-    $('#prof').change(function(){
+    $('#image').change(function(){
         // Get the selected file
         const file = $(this)[0].files[0];
         
@@ -47,5 +47,22 @@ $(window).on("load resize ", function() {
             console.log("No file selected");
         }
     });
+
+
+
+
+    let lists = document.querySelectorAll("#list");
+
+
+    lists.forEach(list => {
+        list.addEventListener("click", () => {
+            $("#selected").html(list.innerHTML);
+            $("#myInput").val(list.innerHTML);
+        });
+    });
     
+    
+
+    // Assuming you have an input element with the id "fileInput"
+
     })

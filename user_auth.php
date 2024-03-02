@@ -76,7 +76,7 @@
         $phone=$_POST['phone'];
         $password=$_POST['password'];
         $confirm=$_POST['conpass'];
-        $prefix="sup";
+ 
 
 
      
@@ -84,16 +84,16 @@
 
     
 
-        if(empty_sup_signup($email, $fname, $phone, $password, $confirm )!== false){
+        if(emptysignup($email, $fname, $phone, $password, $confirm )!== false){
             
             
-            header("location: super_auth.php?error=emptyfield");
+            header("location: user_auth.php?error=emptyfield");
             exit();
  
         }
 
         if(invalid_email($email)!== false){
-            header("location: super_auth.php?error=invalidemail");
+            header("location: user_auth.php?error=invalidemail");
         //     echo '<div class="message" id="message">
         //     error: INVALID EMAIL
         // </div>';
@@ -102,18 +102,18 @@
 
         if(pwd_match($password, $confirm)!== false){
       
-            header("location: super_auth.php?error=pwd_not_match");
+            header("location: user_auth.php?error=pwd_not_match");
             exit();
         }
 
         if (invalid_password($password)) {
-            header("location: super_auth.php?error=invalid_pass");
+            header("location: user_auth.php?error=invalid_pass");
             exit();
  
         }
 
         if(sup_email_exists($conn, $email)!== false){
-            header("location: super_auth.php?error=email_in_use");
+            header("location: user_auth.php?error=email_in_use");
       
             exit();
         }
@@ -121,7 +121,7 @@
 
      
 
-        create_super($conn, $email, $fname,  $phone, $password, $confirm , $prefix);
+        create_user($conn, $email, $fname,  $phone, $password, $confirm , $prefix);
     
         
     }
@@ -138,7 +138,7 @@
         
 
     if(emptylogin($email, $password)){
-        header("location: super_auth.php?error=empty_login");
+        header("location: user_auth.php?error=empty_login");
         exit();
     }
 

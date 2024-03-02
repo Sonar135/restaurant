@@ -40,31 +40,28 @@
                     <div class="n_e">
 
                         <div class="select">
-                            select category
+                           <span id="selected"> select category</span>
 
                             <div class="selections">
                                 <ul>
-                                    <li id="list">
-                                       intercontinental
-                                    </li>
-                                    <li id="list">
-                                       local
-                                       </li>
-                                       <li id="list">
-                                       fast foods
-                                       </li>
-                                       <li id="list">
-                                       drinks
-                                       </li>
-                                       <li id="list">
-                                       pastries
-                                       </li>
+                                    <li id="list">intercontinental </li>
+                                     
+                                  
+                                    <li id="list">local</li>
+                                     
+                                     
+                                       <li id="list">fast foods </li>
+                                      
+                                     
+                                       <li id="list">drinks</li>
+                                       <li id="list">pastries </li>
+                                    
                                 </ul>
                             </div>
                         </div>
-                        <input type="text" placeholder="" name="category" hidden>
+                        <input type="text" placeholder="" name="category"  id="myInput" hidden >
 
-                        <label for="image">
+                        <label for="image" class="label">
                             image
                         </label>
                         <input type="file" accept="image/*" name="conpass" hidden id="image">
