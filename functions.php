@@ -138,7 +138,7 @@
         $stmt=mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $query)){
-            header("location: super_auth.php?error=stmtfailed");
+            header("location: res_auth.php?error=stmtfailed");
             exit();
         }
     
@@ -162,7 +162,7 @@
     
 
     function login($conn, $matric, $password){
-        $uidexist= matric_exists($conn, $matric);
+        $uidexist= email_exists($conn, $matric);
 
         if($uidexist===false){
             header("location: user_auth.php?error=wrongLogin");
@@ -184,6 +184,7 @@
             $_SESSION["email"]=$uidexist["email"];
             $_SESSION['phone']=$uidexist['phone'];
             $_SESSION['user_type']=$uidexist['user_type'];
+            
           
      
    
@@ -215,20 +216,20 @@
 
 
 
-    function sup_email_exists($conn, $email){
+    function rest_exists($conn, $name){
         $result;
     
-        $query="SELECT * FROM supervisors WHERE email=?";
+        $query="SELECT * FROM restaurant WHERE name=?";
     
         $stmt=mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $query)){
-            header("location: super_auth.php?error=stmtfailed");
+            header("location: res_auth.php?error=stmtfailed");
             exit();
         }
     
         
-        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_bind_param($stmt, "s", $name);
         mysqli_stmt_execute($stmt);
         $result= mysqli_stmt_get_result($stmt);
     
@@ -245,31 +246,31 @@
     }
 
 
-    function create_super($conn, $email, $fname,  $phone, $password, $confirm , $prefix){
-        $user_type="supervisor";
+    function create_restaurant($conn, $email, $fname,  $phone, $password, $confirm ){
+        $user_type="restaurant";
   
-        $insert= "INSERT INTO supervisors (name,  phone, email, prefix,  password, user_type) VALUES (?,?,?,?,?,?)";
+        $insert= "INSERT INTO restaurant (name,  phone, email,  password, user_type) VALUES (?,?,?,?,?)";
 
         $stmt2=mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt2, $insert)){
-            header("location: super_auth.php?error=stmtfailed");
+            header("location: res_auth.php?error=stmtfailed");
             exit();
         }
     
         
         $hashed_pwd=password_hash($password, PASSWORD_DEFAULT);
 
-        mysqli_stmt_bind_param($stmt2, 'ssssss', $fname, $phone,  $email, $prefix, $hashed_pwd, $user_type);
+        mysqli_stmt_bind_param($stmt2, 'sssss', $fname, $phone,  $email,  $hashed_pwd, $user_type);
         mysqli_stmt_execute($stmt2);
         mysqli_stmt_close($stmt2);
         
-        header("location: super_auth.php?error=success");
+        header("location: res_auth.php?error=success");
         exit();
     }
 
 
-    function empty_sup_signup($email, $fname, $phone, $password, $confirm ){
+    function empty_res_signup($email, $fname, $phone, $password, $confirm ){
         $result;
         if($email=="" or $fname=="" or  $phone=="" or $password=="" or $confirm=="" ){
             $result= true;
@@ -283,11 +284,24 @@
 
 
 
-    function sup_login($conn, $email, $password){
-        $uidexist= sup_email_exists($conn, $email);
+    function empty_res_login($name, $password){
+        $result;
+        if($email=="" or $password==""){
+            $result= true;
+        }
+        else {
+            $result=false;
+        } 
+
+        return $result;
+    }
+
+
+    function res_login($conn, $name, $password){
+        $uidexist= rest_exists($conn, $name);
 
         if($uidexist===false){
-            header("location: super_auth.php?error=wrongLogin");
+            header("location: res_auth.php?error=wrongLogin");
             exit();
         }
 
@@ -295,7 +309,7 @@
         $checkedpwd=password_verify($password, $pwdHashed);
 
         if($checkedpwd===false){
-            header("location: super_auth.php?error=wrongLogin");
+            header("location: res_auth.php?error=wrongLogin");
             exit();
         }
 
@@ -303,7 +317,6 @@
             session_start();
 
             $_SESSION["id"]=$uidexist["id"];
-            $_SESSION['siwesid']=$uidexist['siwesid'];
             $_SESSION["email"]=$uidexist["email"];
             $_SESSION['phone']=$uidexist['phone'];
             $_SESSION['user_type']=$uidexist['user_type'];
@@ -312,7 +325,7 @@
    
          
 
-            header("location: main.php");
+            header("location: stock.php");
             exit();
         }
     }

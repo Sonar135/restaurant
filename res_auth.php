@@ -37,7 +37,7 @@
     if(isset($_GET['error'])){
         if($_GET['error']=='email_in_use'){
             echo '  <div class="message" id="message">
-            email already used by another account
+            restaurant already exixts
         </div>';
         }
     }
@@ -76,7 +76,7 @@
         $phone=$_POST['phone'];
         $password=$_POST['password'];
         $confirm=$_POST['conpass'];
-        $prefix="sup";
+
 
 
      
@@ -84,16 +84,16 @@
 
     
 
-        if(empty_sup_signup($email, $fname, $phone, $password, $confirm )!== false){
+        if(empty_res_signup($email, $fname, $phone, $password, $confirm )!== false){
             
             
-            header("location: super_auth.php?error=emptyfield");
+            header("location: res_auth.php?error=emptyfield");
             exit();
  
         }
 
         if(invalid_email($email)!== false){
-            header("location: super_auth.php?error=invalidemail");
+            header("location: res_auth.php?error=invalidemail");
         //     echo '<div class="message" id="message">
         //     error: INVALID EMAIL
         // </div>';
@@ -102,18 +102,18 @@
 
         if(pwd_match($password, $confirm)!== false){
       
-            header("location: super_auth.php?error=pwd_not_match");
+            header("location: res_auth.php?error=pwd_not_match");
             exit();
         }
 
         if (invalid_password($password)) {
-            header("location: super_auth.php?error=invalid_pass");
+            header("location: res_auth.php?error=invalid_pass");
             exit();
  
         }
 
-        if(sup_email_exists($conn, $email)!== false){
-            header("location: super_auth.php?error=email_in_use");
+        if(rest_exists($conn, $fname)!== false){
+            header("location: res_auth.php?error=email_in_use");
       
             exit();
         }
@@ -121,7 +121,7 @@
 
      
 
-        create_super($conn, $email, $fname,  $phone, $password, $confirm , $prefix);
+        create_restaurant($conn, $email, $fname,  $phone, $password, $confirm );
     
         
     }
@@ -137,19 +137,19 @@
 
         
 
-    if(emptylogin($email, $password)){
-        header("location: super_auth.php?error=empty_login");
+    if(empty_res_login($name, $password)){
+        header("location: res_auth.php?error=empty_login");
         exit();
     }
 
-    sup_login($conn, $email, $password);
+    res_login($conn, $name, $password);
     }
 
 
     if(isset($_GET['error'])){
         if($_GET['error']=='wrongLogin'){
             echo '  <div class="message" id="message">
-            username or password incorrect
+           restaurant or password incorrect
         </div>';
         }
     }

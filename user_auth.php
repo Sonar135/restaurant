@@ -142,7 +142,7 @@
         exit();
     }
 
-    sup_login($conn, $email, $password);
+    login($conn, $email, $password);
     }
 
 

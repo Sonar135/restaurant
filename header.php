@@ -1,5 +1,14 @@
 <?php
-    include "connect.php";
+     ob_start();
+     session_start();
+     include 'connect.php';
+     if(isset($_SESSION["id"])){
+       $email=$_SESSION['email'];
+       $user_type=$_SESSION['user_type'];
+
+
+     
+     }
 ?>
 
 
@@ -20,49 +29,97 @@
             <div class="hanging_menu">
                 <div class="hanging_links">
                 <ul>
-                    <a href="main.php">Home</a>
-                    <li id="menu">menu
 
-                    <div class="menu_cont">
-                    <div class="ne">
-                        <a href="menu.php">intercontinental</a>
-                        <a href="">Local</a>
-                    </div>
+                <?php
+                       if(isset($_SESSION["id"])){
+                        
+                        if($user_type=="user"){
+                            echo '
+                            <a href="main.php">Home</a>
+                            <li id="menu">menu
+        
+                            <div class="menu_cont">
+                            <div class="ne">
+                                <a href="menu.php">intercontinental</a>
+                                <a href="">Local</a>
+                            </div>
+        
+                            <div class="ne">
+                                <a href="">Fast Food</a>
+                                <a href="">Drinks</a>
+                            </div>
+        
+                            <div class="ne">
+                                <a href="">Pastries</a>
+                                <a href="">other</a>
+                            </div>
+                            </div>
+                            </li>
 
-                    <div class="ne">
-                        <a href="">Fast Food</a>
-                        <a href="">Drinks</a>
-                    </div>
 
-                    <div class="ne">
-                        <a href="">Pastries</a>
-                        <a href="">other</a>
-                    </div>
-                    </div>
-                    </li>
+                            <li id="you">you
 
-                    <a href="search.php">Search</a>
+                            <div class="user_cont">
+                              <div class="ne">
+                                  <a href="account.php">account</a>
+                                  <a href="wishlist.php">wishlist</a>
+                              </div>
+          
+                              <div class="ne">
+                                  <a href="orders.php">orders</a>
+                                  <a href="logout.php">logout</a>
+                              </div>
+                            </div>
+                            </li>
 
-                  <li id="you">you
+                            <a href="search.php">Search</a>
+                            ';
+                        }
 
-                  <div class="user_cont">
-                    <div class="ne">
-                        <a href="account.php">account</a>
-                        <a href="wishlist.php">wishlist</a>
-                    </div>
 
-                    <div class="ne">
-                        <a href="orders.php">orders</a>
-                        <a href="reg.php">logout</a>
-                    </div>
-                  </div>
-                  </li>
+                        if($user_type=="restaurant"){
+                            echo '
+                            <a href="stock.php">My Stock</a>
+                            <a href="stock.php">Add Product</a>
+                            <a href="logout.php">logout</a>
+                            ';
+                        }
+                 
+                         
+                      
+                      }
+
+
+                      else{
+                        echo  '<a href="reg.php">login/register</a>';
+                      }
+                ?>
+              
+
+                  
+
+              
                   
                 </ul>
                 </div>
 
                 <div class="cart">
-             <a href="cart.php"> <i class="fa-solid fa-cart-shopping"></i></a>  
+
+                <?php
+                       if(isset($_SESSION["id"])){
+                        
+                 
+                        if($user_type=="user"){
+                            echo ' <a href="cart.php"> <i class="fa-solid fa-cart-shopping"></i></a>  ';
+                        }
+
+                        if($user_type=="restaurant"){
+                            echo ' <a href="user_orders.php"> <i class="fa-solid fa-cart-shopping"></i></a>  ';
+                        }
+                      
+                      }
+                ?>
+            
                 </div>
             </div>
                 <div class="logo">
@@ -96,7 +153,7 @@
 
                         <div class="contact">
                            <div class="icon">
-
+ 
                         </div>
 
                         <div class="text">
