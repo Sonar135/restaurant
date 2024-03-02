@@ -2,7 +2,72 @@
     include "header.php";
 ?>
 
+<?php
 
+if(isset($_GET["carted"])){
+    echo '  <div class="message" id="message">
+    added to cart
+</div>';
+}
+
+if(isset($_GET["in_cart"])){
+    echo '  <div class="message" id="message">
+    already in cart
+</div>';
+}
+
+    $food="";
+    $get=mysqli_query($conn, "SELECT * from item order by rand() limit 8");
+
+    while($row=mysqli_fetch_assoc($get)){
+
+
+        $name=$row["name"];
+        $image=$row["image"];
+        $seller=$row["seller"];
+        $price=$row["price"];
+        $category=$row["category"];
+        $id=$row["id"];
+        
+
+
+
+
+
+
+        $food.= '        <div class="best_card">
+
+        <div class="card_seller">
+        '.$seller.'
+        </div>
+        <div class="food_img">
+            <img src="./food_pictures/'.$image.'" alt="">
+        </div>
+
+        <div class="name">
+            <h4>'.$name.'</h4>
+        </div>
+
+        <div class="star_array">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        </div>
+
+        <div class="name">
+            <h4>₦'.$price.'</h4>
+        </div>
+
+        <div class="actions">
+          <a href="add_cart.php?id='.$id.'" class=""> <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div></a>
+            <div class="ico"><i class="fa-solid fa-heart"></i></div>
+            <a href="desc.php?id='.$id.'#lock"><div class="ico"><i class="fa-solid fa-eye"></i></div></a> 
+        </div>
+    </div>';
+    }
+?>
 
 
 
@@ -29,58 +94,8 @@
                     <h1>OUR BEST</h1>
 
                     <div class="our_best">
-                        <div class="best_card">
-
-                            <div class="card_seller">
-                                kfc
-                            </div>
-                            <div class="food_img">
-                                <img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt="">
-                            </div>
-
-                            <div class="name">
-                                <h4>yellow pasta</h4>
-                            </div>
-
-                            <div class="star_array">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            </div>
-
-                            <div class="name">
-                                <h4>₦8000</h4>
-                            </div>
-
-                            <div class="actions">
-                                <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div>
-                                <div class="ico"><i class="fa-solid fa-heart"></i></div>
-                                <a href="desc.php?id=1"><div class="ico"><i class="fa-solid fa-eye"></i></div></a> 
-                            </div>
-                        </div>
-                        <div class="best_card">
-                            
-                            </div>
-                            <div class="best_card">
-                            
-                            </div>
-                            <div class="best_card">
-                            
-                            </div>
-                            <div class="best_card">
-                            
-                            </div>
-                            <div class="best_card">
-                            
-                            </div>
-                            <div class="best_card">
-                            
-                            </div>
-                            <div class="best_card">
-                            
-                            </div>
+               
+                  <?php echo $food?>
                     </div>
                 </div>
         </div>

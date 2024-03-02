@@ -3,6 +3,75 @@
 ?>
 
 
+<?php
+
+    if(isset($_GET["id"])){
+        $id=$_GET["id"];
+    }
+
+
+    $food="";
+    $get=mysqli_query($conn, "SELECT * from item where id='$id' order by rand() limit 8");
+
+    while($row=mysqli_fetch_assoc($get)){
+
+
+        $name=$row["name"];
+        $image=$row["image"];
+        $seller=$row["seller"];
+        $price=$row["price"];
+        $category=$row["category"];
+        $id=$row["id"];
+        $desc=$row["description"];
+        
+
+
+
+
+
+
+        $food.= '         <div class="desc_img">
+        <img src="./food_pictures/'.$image.'" alt="">
+    </div>
+
+    <div class="right">
+        <h3> '.$name.'</h3>
+
+        <h4>₦'.$price.'.00</h4>
+
+        <div class="star_array">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                </div>
+
+                <p>'.$desc.'.</p>
+
+
+                <h4>Select Quantity</h4>
+
+              <form action=""> <div class="select">
+                    <div class="minus">
+                    <i class="fa-solid fa-minus"></i>
+                    </div>
+
+                    <input type="text" readonly value="1">
+
+                    <div class="plus">
+                    <i class="fa-solid fa-plus"></i>
+                    </div>
+                </div>
+
+
+                <button> Cart</button>
+                <button> Wishlist</button>
+                </form> 
+
+            </div>';
+    }
+?>
 
 
 <!DOCTYPE html>
@@ -21,49 +90,10 @@
         </div>
 
 
-        <div class="container sec1">
-            <div class="cent">
-                <div class="desc_img">
-                    <img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt="">
-                </div>
-
-                <div class="right">
-                    <h3>Yellow Pasta</h3>
-
-                    <h4>₦12000.00</h4>
-
-                    <div class="star_array">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            </div>
-
-                            <p>Pizza is a savory dish of Italian origin consisting of a usually round, flattened base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients.</p>
-
-
-                            <h4>Select Quantity</h4>
-
-                          <form action=""> <div class="select">
-                                <div class="minus">
-                                <i class="fa-solid fa-minus"></i>
-                                </div>
-
-                                <input type="text" readonly value="1">
-
-                                <div class="plus">
-                                <i class="fa-solid fa-plus"></i>
-                                </div>
-                            </div>
-
-
-                            <button> Cart</button>
-                            <button> Wishlist</button>
-                            </form> 
-          
-                        </div>
-
+        <div class="container sec1" id="lock">
+            <div class="cent" >
+       
+                <?php echo $food?>
                 
             </div>
         </div>

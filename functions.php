@@ -211,7 +211,7 @@
 
 
 
-    // creating the supervisors...............................................................................................................//////////////////////////
+    // creating the restaurant...............................................................................................................//////////////////////////
 
 
 
@@ -318,7 +318,7 @@
 
             $_SESSION["id"]=$uidexist["id"];
             $_SESSION["email"]=$uidexist["email"];
-            $_SESSION['phone']=$uidexist['phone'];
+            $_SESSION['name']=$uidexist['name'];
             $_SESSION['user_type']=$uidexist['user_type'];
           
      

@@ -6,7 +6,9 @@
        $email=$_SESSION['email'];
        $user_type=$_SESSION['user_type'];
 
-
+        if($user_type=="restaurant"){
+            $res_id=$_SESSION["name"];
+        }
      
      }
 ?>

@@ -13,10 +13,30 @@
         $price=$_POST["price"];
 
         $picture=$_FILES["image"]['name'];
-        $temp_img=$_FILES['image']['tmp_name']
+        $temp_img=$_FILES['image']['tmp_name'];
+
+        if($name=="" or $desc=="" or $quantity=="" or $price=="" or $picture==""){
+            echo '  <div class="message" id="message">
+          please fill required fields
+        </div>';
+        }
+
+        else{
+            move_uploaded_file($temp_img, "./food_pictures/$picture");
 
 
-        $insert=mysqli_query($conn, "INSERT into item ()")
+            $insert=mysqli_query($conn, "INSERT into item (name, price, quantity, image, description, category, seller) 
+            values('$name', '$price', '$quantity', '$picture', '$desc', '$category', '$res_id')");
+
+            if($insert){
+                echo '  <div class="message" id="message">
+               submitted
+              </div>';
+            }
+        }
+
+
+   
     }
 ?>
 
@@ -51,13 +71,13 @@
 
                     <div class="n_e">
                         <input type="text" placeholder="name" name="name">
-                        <input type="number" placeholder="price" name="email">
+                        <input type="number" placeholder="price" name="price">
                     </div>
 
                     <div class="n_e">
 
                         <div class="select">
-                           <span id="selected"> select category</span>
+                           <span id="selected"> select category (optional)</span>
 
                             <div class="selections">
                                 <ul>
