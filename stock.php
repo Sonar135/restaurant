@@ -3,6 +3,28 @@
 ?>
 
 
+<?php
+$output="";
+  $get=mysqli_query($conn, "SELECT * from item where seller='$res_id'");
+
+  while($row=mysqli_fetch_assoc($get)){
+    $name=$row["name"];
+    $image=$row["image"];
+    $price=$row["price"];
+    $quantity=$row["quantity"];
+
+    
+    $output.= '   <tr>
+    <td><div class="img_con"><img src="./food_pictures/'.$image.'" alt=""></div></td>
+    <td><h3>'.$name.'</h3> </td>
+    <td><h3>₦'.$price.'.00</h3></td>
+    <td><h3>'.$quantity.'</h3></td>
+    <td id="ico"><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></td>
+  </tr>';
+  }
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,15 +66,9 @@
   <div class="tbl-content">
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
-        <tr>
-          <td><div class="img_con"><img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt=""></div></td>
-          <td><h3>food</h3> </td>
-          <td><h3>₦12000</h3></td>
-          <td><h3>1</h3></td>
-          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></td>
-        </tr>
+     
 
-
+      <?php echo $output?>
 
       </tbody>
     </table>

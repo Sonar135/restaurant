@@ -39,3 +39,15 @@
  tr button{
     padding:0;
   }
+
+
+  .checkout_cont{
+    margin:0px auto;
+    width:600px;
+    height:100px;
+    /* background: #000; */
+  }
+
+  .checkout_cont button{
+    margin: 16px auto;
+  }

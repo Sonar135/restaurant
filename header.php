@@ -112,7 +112,7 @@
                         
                  
                         if($user_type=="user"){
-                            echo ' <a href="cart.php"> <i class="fa-solid fa-cart-shopping"></i></a>  ';
+                            echo ' <a href="cart.php#lock"> <i class="fa-solid fa-cart-shopping"></i></a>  ';
                         }
 
                         if($user_type=="restaurant"){

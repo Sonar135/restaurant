@@ -36,23 +36,75 @@
     else{
       $new_quantity=$pre_quantity+1;
 
-      $new_total=$stock_price*$new_quantity;
+      $new_total=$stock_price*$new_quantity; 
 
-      $update_cart=mysqli_query($conn, "UPDATE cart set quantity='$new_quantity' and total='$new_total' where food_id='$cart_id'");
+      $update_cart=mysqli_query($conn, "UPDATE cart set quantity='$new_quantity'  where food_id='$cart_id'");
+      $update_cart2=mysqli_query($conn, "UPDATE cart set total='$new_total'  where food_id='$cart_id'");
 
       $new_stock= $stock-1;
 
       $update_stock=mysqli_query($conn, "UPDATE item set quantity='$new_stock' where id='$cart_id'");
 
-      header("location: cart.php");
+      header("location: cart.php#lock");
     }
   
   }
 ?>
 
 
+
+
+
+
+<?php
+  if(isset($_POST["dec"])){
+
+  
+
+    $cart_id=$_POST["id"];
+    $get_stock=mysqli_query($conn, "SELECT * from item where id =$cart_id");
+
+   
+
+    $stock_row=mysqli_fetch_assoc($get_stock);
+
+    $stock=$stock_row["quantity"];
+    $stock_price=$stock_row["price"];
+
+
+    $query=mysqli_query($conn, "SELECT * from cart where buyer='$email' and food_id='$cart_id'");
+
+    $cart_row=mysqli_fetch_assoc($query);
+    $pre_quantity=$cart_row["quantity"];
+
+    if($pre_quantity<2){
+   
+      $new_quantity=$pre_quantity;
+    
+    }
+
+    else{
+      $new_quantity=$pre_quantity-1;
+
+      $new_total=$stock_price*$new_quantity; 
+
+      $update_cart=mysqli_query($conn, "UPDATE cart set quantity='$new_quantity'  where food_id='$cart_id'");
+      $update_cart2=mysqli_query($conn, "UPDATE cart set total='$new_total'  where food_id='$cart_id'");
+
+      $new_stock= $stock+1;
+
+      $update_stock=mysqli_query($conn, "UPDATE item set quantity='$new_stock' where id='$cart_id'");
+
+      header("location: cart.php#lock");
+    }
+  
+  }
+?>
+
+  
 <?php
   $cart="";
+  $total_cost=0;
   $get=mysqli_query($conn, "SELECT * FROM cart where buyer='$email'");
 
   while($row=mysqli_fetch_assoc($get)){
@@ -64,8 +116,12 @@
     $id=$row["food_id"];
     $quantity=$row["quantity"];
     $total=$row["total"];
-    
 
+  
+
+    $total_cost+=$total;
+    
+  
 
 
 
@@ -90,8 +146,8 @@
             </button>
           </div></form></td>
     <td><h3>₦ '.$total.'.00</h3></td>
-    <td id="ico"><div class="tb_ico"><i class="fa-solid fa-eye"></i></div></td>
-    <td id="ico"><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></td>
+    <td id="ico"><a href="desc.php?id='.$id.'#lock"><div class="tb_ico"> <i class="fa-solid fa-eye"></i> </div></a></td>
+    <td id="ico"><a href="delete.php?cart&id='.$id.'" class=""><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></a></td>
   </tr> ';
 }
 ?>
@@ -139,7 +195,7 @@
   </div>
   <div class="tbl-content">
     <table cellpadding="0" cellspacing="0" border="0">
-      <tbody>
+      <tbody id="lock">
 
         <?php echo $cart?>
 
@@ -150,6 +206,10 @@
   </div>
 </section>
 
+    <div class="checkout_cont">
+       <h1>Total: ₦<?php echo $total_cost?>.00</h1>
+       <button>checkout</button>
+    </div>
             </div>
         </div>
 </body>

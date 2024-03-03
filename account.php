@@ -4,9 +4,19 @@
 
 
 
+<?php
+
+    $query=mysqli_query($conn, "SELECT * from users where email='$email'");
+
+    $row=mysqli_fetch_assoc($query);
+
+    $name=$row["name"];
+    $address=$row["address"];
+    $phone=$row["phone"];
 
 
-
+  
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,22 +46,22 @@
 
                     <div class="ne">
                         <h3>Name:</h3>
-                        <h3>Efidi Victor</h3>
+                        <h3><?php echo $name?></h3>
                     </div>
 
                     <div class="ne">
                         <h3>Email:</h3>
-                        <h3>vefidi135@gmail.com</h3>
+                        <h3><?php echo $email?></h3>
                     </div>
 
                     <div class="ne">
                         <h3>Address:</h3>
-                        <h3>No 17 samuel ajayi street</h3>
+                        <h3><?php echo $address?></h3>
                     </div>
 
                     <div class="ne">
                         <h3>Phone:</h3>
-                        <h3>08109495127</h3>
+                        <h3><?php echo $phone?></h3>
                     </div>
                 </div>
                 <button>

@@ -27,7 +27,7 @@
     <td><h3> '.$name.'</h3> </td>
     <td><h3>₦ '.$price.'.00</h3></td>
  <td id="ico"><a href="desc.php?id='.$id.'#lock"><div class="tb_ico"> <i class="fa-solid fa-eye"></i> </div></a></td>
-    <a href="remove_wish.php"><td id="ico"><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></td></a>
+ <td id="ico"><a href="delete.php?wish&id='.$id.'" class=""><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></a></td>
   </tr>';
 }
 
