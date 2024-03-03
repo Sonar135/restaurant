@@ -2,7 +2,37 @@
     include "header.php";
 ?>
 
+<?php
 
+  $wished="";
+  $get=mysqli_query($conn, "SELECT * from wishlist where buyer='$email'");
+
+
+  while($row=mysqli_fetch_assoc($get)){
+
+
+    $name=$row["name"];
+    $image=$row["image"];
+    $price=$row["price"];
+    $id=$row["food_id"];
+    
+
+
+
+
+
+
+    $wished.= '        <tr>
+    <td><div class="img_con"><img src="./food_pictures/'.$image.'" alt=""></div></td>
+    <td><h3> '.$name.'</h3> </td>
+    <td><h3>₦ '.$price.'.00</h3></td>
+ <td id="ico"><a href="desc.php?id='.$id.'#lock"><div class="tb_ico"> <i class="fa-solid fa-eye"></i> </div></a></td>
+    <a href="remove_wish.php"><td id="ico"><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></td></a>
+  </tr>';
+}
+
+
+?>
 
 
 
@@ -46,13 +76,7 @@
   <div class="tbl-content">
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
-        <tr>
-          <td><div class="img_con"><img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt=""></div></td>
-          <td><h3>food</h3> </td>
-          <td><h3>₦12000</h3></td>
-          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-eye"></i></div></td>
-          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></td>
-        </tr>
+     <?php echo $wished?>
 
 
 

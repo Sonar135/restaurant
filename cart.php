@@ -4,10 +4,104 @@
 
 
 
+<?php
+  if(isset($_POST["inc"])){
+
+  
+
+    $cart_id=$_POST["id"];
+    $get_stock=mysqli_query($conn, "SELECT * from item where id =$cart_id");
+
+   
+
+    $stock_row=mysqli_fetch_assoc($get_stock);
+
+    $stock=$stock_row["quantity"];
+    $stock_price=$stock_row["price"];
+
+
+    $query=mysqli_query($conn, "SELECT * from cart where buyer='$email' and food_id='$cart_id'");
+
+    $cart_row=mysqli_fetch_assoc($query);
+    $pre_quantity=$cart_row["quantity"];
+
+    if($stock<1){
+   
+        echo '  <div class="message" id="message">
+        item is now out of stock
+    </div>';
+    
+    }
+
+    else{
+      $new_quantity=$pre_quantity+1;
+
+      $new_total=$stock_price*$new_quantity;
+
+      $update_cart=mysqli_query($conn, "UPDATE cart set quantity='$new_quantity' and total='$new_total' where food_id='$cart_id'");
+
+      $new_stock= $stock-1;
+
+      $update_stock=mysqli_query($conn, "UPDATE item set quantity='$new_stock' where id='$cart_id'");
+
+      header("location: cart.php");
+    }
+  
+  }
+?>
+
+
+<?php
+  $cart="";
+  $get=mysqli_query($conn, "SELECT * FROM cart where buyer='$email'");
+
+  while($row=mysqli_fetch_assoc($get)){
+
+
+    $name=$row["name"];
+    $image=$row["image"];
+    $price=$row["price"];
+    $id=$row["food_id"];
+    $quantity=$row["quantity"];
+    $total=$row["total"];
+    
+
+
+
+
+
+
+    $cart.= '             <tr>
+    <td><div class="img_con"><img src="./food_pictures/'.$image.'" alt=""></div></td>
+    <td><h3> '.$name.'</h3> </td>
+    <td><h3>₦ '.$price.'.00</h3></td>
+    <td><form action="" method="post"><div class="select">
+              <button class="dec" name="dec">
+              <i class="fa-solid fa-minus"></i>
+              </button>
+
+              <input type="text" readonly value=" '.$id.'" name="id"  hidden>
+
+
+              <input type="text" readonly value=" '.$quantity.'" name="quantity" id="value">
+
+              <button class="inc" name="inc">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div></form></td>
+    <td><h3>₦ '.$total.'.00</h3></td>
+    <td id="ico"><div class="tb_ico"><i class="fa-solid fa-eye"></i></div></td>
+    <td id="ico"><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></td>
+  </tr> ';
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/wishlist.css?v=<?php echo time();?>">
+    <link rel="stylesheet" href="css/cart.css?v=<?php echo time();?>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -46,35 +140,10 @@
   <div class="tbl-content">
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
-        <tr>
-          <td><div class="img_con"><img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt=""></div></td>
-          <td><h3>food</h3> </td>
-          <td><h3>₦12000</h3></td>
-          <td><h3>6</h3></td>
-          <td><h3>₦30000</h3></td>
-          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-eye"></i></div></td>
-          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></td>
-        </tr>
 
-        <tr>
-          <td><div class="img_con"><img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt=""></div></td>
-          <td><h3>food</h3> </td>
-          <td><h3>₦12000</h3></td>
-          <td><h3>6</h3></td>
-          <td><h3>₦30000</h3></td>
-          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-eye"></i></div></td>
-          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></td>
-        </tr>
+        <?php echo $cart?>
 
-        <tr>
-          <td><div class="img_con"><img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt=""></div></td>
-          <td><h3>food</h3> </td>
-          <td><h3>₦12000</h3></td>
-          <td><h3>6</h3></td>
-          <td><h3>₦30000</h3></td>
-          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-eye"></i></div></td>
-          <td id="ico"><div class="tb_ico"><i class="fa-solid fa-trash"></i></div></td>
-        </tr>
+ 
 
       </tbody>
     </table>

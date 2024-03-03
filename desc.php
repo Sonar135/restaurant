@@ -185,6 +185,8 @@ if(isset($_GET["greater"])){
             $category=$row["category"];
             $id=$row["id"];
             $in_stock=$row["quantity"];
+            $total=$quantity*$price;
+
             
         }
     
@@ -235,9 +237,9 @@ if(isset($_GET["greater"])){
      
         }
     
-        $get_cart=mysqli_query($conn, "SELECT * from wishlist where buyer='$email' and food_id='$id'");
+        $get_wish=mysqli_query($conn, "SELECT * from wishlist where buyer='$email' and food_id='$id'");
     
-        if(mysqli_num_rows($get_cart)>0){
+        if(mysqli_num_rows($get_wish)>0){
             header("location: desc.php?id=$id&in_wish#lock");
         }
     

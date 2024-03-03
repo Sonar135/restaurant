@@ -29,6 +29,7 @@
         $id=$row["id"];
         $in_stock=$row["quantity"];
         $quantity=1;
+        $total=$quantity*$price;
     }
 
     $get_cart=mysqli_query($conn, "SELECT * from cart where buyer='$email' and food_id='$id'");
