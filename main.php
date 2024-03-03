@@ -16,6 +16,19 @@ if(isset($_GET["in_cart"])){
 </div>';
 }
 
+
+if(isset($_GET["wished"])){
+    echo '  <div class="message" id="message">
+    added to wishlist
+</div>';
+}
+
+if(isset($_GET["in_wish"])){
+    echo '  <div class="message" id="message">
+    already in wishlist
+</div>';
+}
+
     $food="";
     $get=mysqli_query($conn, "SELECT * from item order by rand() limit 8");
 
@@ -62,7 +75,7 @@ if(isset($_GET["in_cart"])){
 
         <div class="actions">
           <a href="add_cart.php?id='.$id.'" class=""> <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div></a>
-            <div class="ico"><i class="fa-solid fa-heart"></i></div>
+           <a href="add_wish.php?id='.$id.'" class=""> <div class="ico"><i class="fa-solid fa-heart"></i></div></a>
             <a href="desc.php?id='.$id.'#lock"><div class="ico"><i class="fa-solid fa-eye"></i></div></a> 
         </div>
     </div>';

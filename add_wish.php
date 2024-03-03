@@ -31,22 +31,20 @@
         $quantity=1;
     }
 
-    $get_cart=mysqli_query($conn, "SELECT * from cart where buyer='$email' and food_id='$id'");
+    $get_cart=mysqli_query($conn, "SELECT * from wishlist where buyer='$email' and food_id='$id'");
 
     if(mysqli_num_rows($get_cart)>0){
-        header("location: main.php?in_cart");
+        header("location: main.php?in_wish");
     }
 
     else{
-        $insert=mysqli_query($conn, "INSERT INTO cart (name, price, quantity, total, image, seller, buyer, food_id)
-        values('$name', '$price', '$quantity', '$total', '$image', '$seller', '$email', '$id')");
+        $insert=mysqli_query($conn, "INSERT INTO wishlist (name, price, image,  buyer, food_id)
+        values('$name', '$price',  '$image', '$email', '$id')");
 
         if($insert){
-            $new_stock=$in_stock-$quantity;
+      
 
-            $update=mysqli_query($conn, "UPDATE item set quantity='$new_stock' where id='$id' ");
-
-        header("location: main.php?carted");
+        header("location: main.php?wished");
             
         }
     }

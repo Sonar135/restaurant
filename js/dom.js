@@ -63,6 +63,21 @@ $(window).on("load resize ", function() {
     
     
 
-    // Assuming you have an input element with the id "fileInput"
+    let value = parseInt($("#value").val());
+
+    $(".plus").click(() => {
+        
+        value = value + 1;
+        $("#value").val(value);
+    });
+    
+    $(".minus").click(() => {
+        if(value>1){
+            value = value - 1;
+            $("#value").val(value);
+        }
+     
+    });
+    
 
     })

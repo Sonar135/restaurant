@@ -3,6 +3,41 @@
 ?>
 
 
+
+<?php
+
+if(isset($_GET["carted"])){
+    echo '  <div class="message" id="message">
+    added to cart
+</div>';
+}
+
+if(isset($_GET["in_cart"])){
+    echo '  <div class="message" id="message">
+    already in cart
+</div>';
+}
+
+
+if(isset($_GET["wished"])){
+    echo '  <div class="message" id="message">
+    added to wishlist
+</div>';
+}
+
+if(isset($_GET["in_wish"])){
+    echo '  <div class="message" id="message">
+    already in wishlist
+</div>';
+}
+
+if(isset($_GET["greater"])){
+    echo '  <div class="message" id="message">
+   demand exceeds stock
+</div>';
+}
+?>
+
 <?php
 
     if(isset($_GET["id"])){
@@ -11,7 +46,7 @@
 
 
     $food="";
-    $get=mysqli_query($conn, "SELECT * from item where id='$id' order by rand() limit 8");
+    $get=mysqli_query($conn, "SELECT * from item where id='$id' ");
 
     while($row=mysqli_fetch_assoc($get)){
 
@@ -21,7 +56,6 @@
         $seller=$row["seller"];
         $price=$row["price"];
         $category=$row["category"];
-        $id=$row["id"];
         $desc=$row["description"];
         
 
@@ -52,12 +86,12 @@
 
                 <h4>Select Quantity</h4>
 
-              <form action=""> <div class="select">
+              <form action="" method="post"> <div class="select">
                     <div class="minus">
                     <i class="fa-solid fa-minus"></i>
                     </div>
 
-                    <input type="text" readonly value="1">
+                    <input type="text" readonly value="1" name="quantity" id="value">
 
                     <div class="plus">
                     <i class="fa-solid fa-plus"></i>
@@ -65,8 +99,8 @@
                 </div>
 
 
-                <button> Cart</button>
-                <button> Wishlist</button>
+                <button name="cart"> Cart</button>
+                <button name="wish"> Wishlist</button>
                 </form> 
 
             </div>';
@@ -77,7 +111,7 @@
 
 <?php
     $related="";
-    $get_related=mysqli_query($conn, "SELECT * from item where category like '%$category%' order by rand() limit 4'");
+    $get_related=mysqli_query($conn, "SELECT * from item where category='$category' order by rand() limit 4");
 
 
     while($row=mysqli_fetch_assoc($get_related)){
@@ -88,7 +122,7 @@
         $seller=$row["seller"];
         $price=$row["price"];
         $category=$row["category"];
-        $id=$row["id"];
+        $rel_id=$row["id"];
         
 
 
@@ -122,14 +156,103 @@
         </div>
 
         <div class="actions">
-          <a href="add_cart.php?id='.$id.'" class=""> <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div></a>
+          <a href="add_cart.php?id='.$rel_id.'" class=""> <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div></a>
             <div class="ico"><i class="fa-solid fa-heart"></i></div>
-            <a href="desc.php?id='.$id.'#lock"><div class="ico"><i class="fa-solid fa-eye"></i></div></a> 
+            <a href="desc.php?id='.$rel_id.'#lock"><div class="ico"><i class="fa-solid fa-eye"></i></div></a> 
         </div>
     </div>';
     }
 
 
+?>
+
+
+
+
+<?php
+    if(isset($_POST["cart"])){
+        $quantity=$_POST["quantity"];
+
+        $get_item=mysqli_query($conn, "SELECT * from item where id='$id'");
+
+        while($row=mysqli_fetch_assoc($get_item)){
+    
+    
+            $name=$row["name"];
+            $image=$row["image"];
+            $seller=$row["seller"];
+            $price=$row["price"];
+            $category=$row["category"];
+            $id=$row["id"];
+            $in_stock=$row["quantity"];
+            
+        }
+    
+        $get_cart=mysqli_query($conn, "SELECT * from cart where buyer='$email' and food_id='$id'");
+    
+        if(mysqli_num_rows($get_cart)>0){
+            header("location: desc.php?id=$id&in_cart#lock");
+        }
+
+       else if($quantity>$in_stock){
+            header("location: desc.php?id=$id&greater#lock");
+        }
+    
+        else{
+            $insert=mysqli_query($conn, "INSERT INTO cart (name, price, quantity, total, image, seller, buyer, food_id)
+            values('$name', '$price', '$quantity', '$total', '$image', '$seller', '$email', '$id')");
+    
+            if($insert){
+                $new_stock=$in_stock-$quantity;
+    
+                $update=mysqli_query($conn, "UPDATE item set quantity='$new_stock' where id='$id' ");
+    
+                header("location: desc.php?id=$id&carted#lock");
+
+                
+            }
+        }
+    }
+
+
+
+
+
+
+    if(isset($_POST["wish"])){
+        $get=mysqli_query($conn, "SELECT * from item where id='$id'");
+
+        while($row=mysqli_fetch_assoc($get)){
+    
+    
+            $name=$row["name"];
+            $image=$row["image"];
+            $seller=$row["seller"];
+            $price=$row["price"];
+            $category=$row["category"];
+            $id=$row["id"];
+           
+     
+        }
+    
+        $get_cart=mysqli_query($conn, "SELECT * from wishlist where buyer='$email' and food_id='$id'");
+    
+        if(mysqli_num_rows($get_cart)>0){
+            header("location: desc.php?id=$id&in_wish#lock");
+        }
+    
+        else{
+            $insert=mysqli_query($conn, "INSERT INTO wishlist (name, price, image,  buyer, food_id)
+            values('$name', '$price',  '$image', '$email', '$id')");
+    
+            if($insert){
+          
+    
+                header("location: desc.php?id=$id&wished#lock");
+                
+            }
+        }
+    }
 ?>
 
 
