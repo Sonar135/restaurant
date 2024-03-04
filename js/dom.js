@@ -34,6 +34,18 @@ $(window).on("load resize ", function() {
         $(".edit_overlay").css("display", "none");
     })
 
+    $("#my_btn").prop("disabled", true);
+
+    $("#my_input").on("input", function() {
+        if ($(this).val() !== "") {
+            $("#my_btn").prop("disabled", false);
+        } else {
+            $("#my_btn").prop("disabled", true);
+        }
+    });
+    
+
+    
     
     
     

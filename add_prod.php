@@ -52,7 +52,10 @@
 <body>
 <div class="bg_container">
             <div class="overlay">
-
+            <div class="cent">
+                        <h1>ADD PRODUCT</h1>
+                     
+                    </div>
             </div>
         </div>
 

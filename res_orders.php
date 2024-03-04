@@ -62,7 +62,11 @@
 <body>
 <div class="bg_container">
             <div class="overlay">
-
+            <div class="cent">
+                        <h1>CUSTOMER ORDERS</h1>
+                        <H1> see Who Has Purchased Your Product</H1>
+                   
+                    </div>
             </div>
         </div>
 

@@ -15,7 +15,10 @@
 <body>
 <div class="bg_container">
             <div class="overlay">
-
+            <div class="cent">
+                        <h1>REGISTER</h1>
+                   
+                    </div>
             </div>
         </div>
 

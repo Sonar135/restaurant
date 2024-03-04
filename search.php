@@ -4,6 +4,34 @@
 
 
 <?php
+if(isset($_GET["carted"])){
+    echo '  <div class="message" id="message">
+    added to cart
+</div>';
+}
+
+if(isset($_GET["in_cart"])){
+    echo '  <div class="message" id="message">
+    already in cart
+</div>';
+}
+
+
+if(isset($_GET["wished"])){
+    echo '  <div class="message" id="message">
+    added to wishlist
+</div>';
+}
+
+if(isset($_GET["in_wish"])){
+    echo '  <div class="message" id="message">
+    already in wishlist
+</div>';
+}
+
+
+
+
     if(isset($_GET["q"])){
         $search=$_GET["q"];
     }
@@ -12,6 +40,12 @@
     $food="";
 
     $query=mysqli_query($conn, "SELECT * from item where category like '%$search%' or name like '%$search%' or seller like '%$search%'");
+
+    if(mysqli_num_rows($query)<1){
+        $food='
+        <h1>No Items Match Your Search</h1>
+        ';
+    }
 
 
     while($row=mysqli_fetch_assoc($query)){
@@ -55,8 +89,8 @@
         </div>
 
         <div class="actions">
-          <a href="add_cart.php?id='.$id.'" class=""> <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div></a>
-           <a href="add_wish.php?id='.$id.'" class=""> <div class="ico"><i class="fa-solid fa-heart"></i></div></a>
+        <a href="add_cart.php?id='.$id.'&q='.$search.'" class=""> <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div></a>
+        <a href="add_wish.php?id='.$id.'&q='.$search.'" class=""> <div class="ico"><i class="fa-solid fa-heart"></i></div></a>
             <a href="desc.php?id='.$id.'#lock"><div class="ico"><i class="fa-solid fa-eye"></i></div></a> 
         </div>
     </div>';
@@ -75,7 +109,7 @@
 <div class="bg_container">
             <div class="overlay">
                 <div class="cent">
-                    <h1>search: burger</h1>
+                    <h1>search: <?PHP echo $search?></h1>
                 </div>
             </div>
         </div>

@@ -38,8 +38,8 @@
 <form action="" method="post"> <div class="search_cont">
  <div class="cent">
        <div class="search_input">
-            <input type="text" name="data" placeholder="search">
-            <button name="search">
+            <input type="text" name="data" placeholder="search" id="my_input"> 
+            <button name="search" id="my_btn">
             <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </div>
@@ -132,7 +132,7 @@
                         
                  
                         if($user_type=="user"){
-                            echo ' <a href="cart.php#lock"> <i class="fa-solid fa-cart-shopping"></i></a>  ';
+                            echo ' <a href="cart.php"> <i class="fa-solid fa-cart-shopping"></i></a>  ';
                         }
 
                         if($user_type=="restaurant"){
@@ -145,7 +145,7 @@
                 </div>
             </div>
                 <div class="logo">
-
+                        <h1>CHOWDOWN</h1>
                 </div>
 
                 

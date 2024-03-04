@@ -96,7 +96,10 @@ if(isset($_GET["in_wish"])){
 <body>
 <div class="bg_container">
             <div class="overlay">
-
+                    <div class="cent">
+                        <h1>CHOWDOWN</h1>
+                        <h1>THE PLACE FOR THE RIGHT KINDS OF FOOD</h1>
+                    </div>
             </div>
         </div>
 
@@ -156,7 +159,7 @@ if(isset($_GET["in_wish"])){
 
                         <div class="img_circle">
                             <div class="inner_cir">
-                                <img src="images\360_F_635201516_G2TFpFPoFA6utXYNgFlgPJGwU24mj6CJ.jpg" alt="">
+                                <img src="images\xcwedo.jpg" alt="">
                             </div>
 
                          
@@ -164,7 +167,7 @@ if(isset($_GET["in_wish"])){
 
                         </div>
                         <div class="name">
-                                <h1>stepanie amanda</h1>
+                                <h1>victoria lolade</h1>
                                 <h4>senior chef</h4>
                             </div>
 
@@ -188,7 +191,7 @@ if(isset($_GET["in_wish"])){
 
                         <div class="img_circle">
                             <div class="inner_cir">
-                                <img src="images\360_F_635201516_G2TFpFPoFA6utXYNgFlgPJGwU24mj6CJ.jpg" alt="">
+                                <img src="images\african-american-male-chef-preparing-food-professional-kitchen_94255-8924.jpg" alt="">
                             </div>
 
                          
@@ -196,7 +199,7 @@ if(isset($_GET["in_wish"])){
 
                         </div>
                         <div class="name">
-                                <h1>stepanie amanda</h1>
+                                <h1>fortune isaiah</h1>
                                 <h4>senior chef</h4>
                             </div>
 
@@ -220,7 +223,7 @@ if(isset($_GET["in_wish"])){
 
                         <div class="img_circle">
                             <div class="inner_cir">
-                                <img src="images\360_F_635201516_G2TFpFPoFA6utXYNgFlgPJGwU24mj6CJ.jpg" alt="">
+                                <img src="images\360_F_653798800_xuzX9Fnek006G2EacJhgmoZOJ0w9c4YD.jpg" alt="">
                             </div>
 
                          
@@ -228,7 +231,7 @@ if(isset($_GET["in_wish"])){
 
                         </div>
                         <div class="name">
-                                <h1>stepanie amanda</h1>
+                                <h1>gbolahan shokoya</h1>
                                 <h4>senior chef</h4>
                             </div>
 
@@ -287,5 +290,51 @@ if(isset($_GET["in_wish"])){
                 </div>
             </div>
         </div>
+
+
+        <footer>
+            <div class="cent">
+                <div class="anchor">
+                    <div class="foot_cont">
+                    <div class="cont_box">
+                            <div class="ico_base">
+                            <i class="fa-solid fa-location-dot"></i>
+                            </div>
+
+                            <div class="the_text">
+                                <h3>ADDRESS</h3>
+                                <h4>Babcock University</h4>
+                            </div>
+                            </div>
+                    </div>
+
+                    <div class="foot_cont">
+                    <div class="cont_box">
+                            <div class="ico_base">
+                            <i class="fa-solid fa-phone"></i>
+                            </div>
+
+                            <div class="the_text">
+                                <h3>PHONE</h3>
+                                <h4>08109495127</h4>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="foot_cont">
+                        <div class="cont_box">
+                            <div class="ico_base">
+                            <i class="fa-solid fa-envelope"></i>
+                            </div>
+
+                            <div class="the_text">
+                                <h3>EMAIL</h3>
+                                <h4>vefidi135@gmail.com</h4>
+                            </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </footer>
 </body>
 </html>

@@ -20,6 +20,10 @@
         $category=$_GET["category"];
     }
 
+    if(isset($_GET["q"])){
+        $search=$_GET["q"];
+    }
+
     $get=mysqli_query($conn, "SELECT * from item where id='$id'");
 
     while($row=mysqli_fetch_assoc($get)){
@@ -42,6 +46,9 @@
         if(isset($_GET["category"])){
             header("location: menu.php?in_cart&category=$category#lock");
         }
+        else  if(isset($_GET["q"])){
+            header("location: search.php?in_cart&q=$search#lock");
+        }
 
         else{
             header("location: main.php?in_cart");
@@ -60,6 +67,10 @@
 
             if(isset($_GET["category"])){
                 header("location: menu.php?carted&category=$category#lock");
+            }
+
+          else  if(isset($_GET["q"])){
+                header("location: search.php?carted&q=$search#lock");
             }
 
             else{

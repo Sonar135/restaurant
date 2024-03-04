@@ -183,7 +183,10 @@
     <div class="hero">
     <div class="bg_container">
             <div class="overlay">
-
+            <div class="cent">
+                        <h1>SIGN IN USER</h1>
+                   
+                    </div>
             </div>
         </div>
 

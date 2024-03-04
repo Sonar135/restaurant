@@ -20,7 +20,7 @@
     --accent: #ff7c08;
     --search: #ff7b08a9;
     --accent_hover:#ab560c;
-    --disabled:#ff7b0831;
+    --disabled:#ff7b0876;
     --styled:"Protest Riot", sans-serif;
 }
 
@@ -108,7 +108,7 @@ button:hover{
 }
 
 button:disabled{
-    background: #0a16506b;
+    background: var(--disabled);
     cursor:default;
 }
 
@@ -280,8 +280,12 @@ h3{
 
 
   .logo{
-    width:200px;
+    width:300px;
     height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor:default;
   }
 
   .menu{
@@ -662,6 +666,12 @@ input[type=number] {
   display:flex;
   justify-content: center;
   align-items: center;
+  animation: fade_in 1s;
+  flex-direction: column;
+}
+
+.bg_container .overlay .cent h1{
+  margin:30px 0;
 }
 
 .bg_container h1{
@@ -699,4 +709,64 @@ input[type=number] {
     position:fixed;
    
   }
+}
+
+
+
+footer{
+  width:100%;
+  height: 400px;
+  background: #1f1f1f;
+}
+
+
+.anchor{
+  width:100%;
+  height:130px;
+  display:flex;
+  background: #1a1a1a;
+}
+
+.foot_cont{
+  width:400px;
+  height:100%;
+}
+
+
+.cont_box{
+  width:360px;
+  height:60px;
+  margin:40px auto;
+  display:flex;
+  border-right: 2px solid #383838
+}
+
+
+.ico_base{
+  height:100%;
+  width: 110px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ico_base i{
+  color:var(--accent);
+  font-size:40px;
+}
+
+.the_text{
+  height:100%;
+  width:240px;
+}
+
+.the_text h3{
+  color: white;
+  font-weight:600;
+  margin:5px 0;
+}
+
+.the_text h4{
+  color: #828282;
+  font-weight:300;
 }

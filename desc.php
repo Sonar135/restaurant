@@ -269,7 +269,10 @@ if(isset($_GET["greater"])){
 <body>
 <div class="bg_container">
             <div class="overlay">
-
+            <div class="cent">
+                        <h1>DESCRIPTION</h1>
+                   
+                    </div>
             </div>
         </div>
 

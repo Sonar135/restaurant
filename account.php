@@ -113,7 +113,10 @@ if(isset($_GET["updated"])){
 </div>
 <div class="bg_container">
             <div class="overlay">
-
+            <div class="cent">
+                        <h1>ACCOUNT</h1>
+                   
+                    </div>
             </div>
         </div>
 

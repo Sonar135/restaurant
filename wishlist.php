@@ -47,7 +47,11 @@
 <body>
 <div class="bg_container">
             <div class="overlay">
-
+            <div class="cent">
+                        <h1>WISHLIST</h1>
+                        <H1>SEE WHAT YOU'VE SAVED FOR LATER</H1>
+                   
+                    </div>
             </div>
         </div>
 

@@ -20,6 +20,11 @@
         $category=$_GET["category"];
     }
 
+
+    if(isset($_GET["q"])){
+        $search=$_GET["q"];
+    }
+
     $get=mysqli_query($conn, "SELECT * from item where id='$id'");
 
     while($row=mysqli_fetch_assoc($get)){
@@ -42,6 +47,10 @@
             header("location: menu.php?in_wish&category=$category#lock");
         }
 
+        else  if(isset($_GET["q"])){
+            header("location: search.php?in_wish&q=$search#lock");
+        }
+
         else{
             header("location: main.php?in_wish");
         }
@@ -57,6 +66,10 @@
             
             if(isset($_GET["category"])){
                 header("location: menu.php?wished&category=$category#lock");
+            }
+
+            else  if(isset($_GET["q"])){
+                header("location: search.php?wished&q=$search#lock");
             }
     
 

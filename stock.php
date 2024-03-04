@@ -37,7 +37,10 @@ $output="";
 <body>
 <div class="bg_container">
             <div class="overlay">
-
+            <div class="cent">
+                        <h1>STOCK</h1>
+                   
+                    </div>
             </div>
         </div>
 

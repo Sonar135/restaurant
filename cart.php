@@ -104,8 +104,13 @@
   
 <?php
   $cart="";
+  $disabled="";
   $total_cost=0;
   $get=mysqli_query($conn, "SELECT * FROM cart where buyer='$email'");
+
+  if(mysqli_num_rows($get)<1){
+    $disabled="disabled";
+  }
 
   while($row=mysqli_fetch_assoc($get)){
 
@@ -165,7 +170,10 @@
 <body>
 <div class="bg_container">
             <div class="overlay">
-
+            <div class="cent">
+                        <h1>CART</h1>
+                   
+                    </div>
             </div>
         </div>
 
@@ -208,7 +216,7 @@
 
     <div class="checkout_cont">
        <h1>Total: ₦<?php echo $total_cost?>.00</h1>
-     <a href="checkout.php">  <button>checkout</button></a>
+     <a href="checkout.php">  <button  <?php echo $disabled?>>checkout</button></a>
     </div>
             </div>
         </div>

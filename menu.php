@@ -41,6 +41,13 @@
 
     $query=mysqli_query($conn, "SELECT * from item where category='$category'");
 
+    if(mysqli_num_rows($query)<1){
+        $food='
+        <h1>No Items in this category</h1>
+        ';
+    }
+
+
     while($row=mysqli_fetch_assoc($query)){
         $name=$row["name"];
         $image=$row["image"];
@@ -103,7 +110,10 @@
 <body>
 <div class="bg_container">
             <div class="overlay">
-
+            <div class="cent">
+                        <h1>CATEGORY: <?PHP echo $category?></h1>
+                   
+                    </div>
             </div>
         </div>
 
