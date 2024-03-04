@@ -30,7 +30,7 @@
 
 
 .left{
-    background: url("../images/TOO_restaurant_Panoramique_vue_Paris_nuit_v2-scaled.jpg");
+    background: url("../images/tls-fingerprinting_.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 30%;
@@ -38,7 +38,9 @@
 
 
 
-
+.left .overlay{
+    background: #0000001f;
+}
 
 
 .right h1{

@@ -770,3 +770,34 @@ footer{
   color: #828282;
   font-weight:300;
 }
+
+
+#red{
+  background: red;
+}
+
+.fot{
+  width:100%;
+  height:200px;
+  margin:50px 0;
+  display:flex;
+}
+
+.fot_card{
+  width:390px;
+  height:100%;
+  margin:0 25px;
+}
+
+.fot h3{
+  COLOR:white;
+}
+
+.fot p{
+  color: #828282;
+  margin:20px 0;
+  text-align: left;
+  width:250px;
+  font-size:15px;
+  line-height: 30px;
+}

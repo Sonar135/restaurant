@@ -11,6 +11,11 @@
 }
 
 
+.left .overlay{
+    background: #00000088;
+}
+
+
 
 .left, .right{
     width:600px;

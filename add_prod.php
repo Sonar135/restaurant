@@ -12,8 +12,8 @@
         $quantity=$_POST["quantity"];
         $price=$_POST["price"];
 
-        $picture=$_FILES["image"]['name'];
-        $temp_img=$_FILES['image']['tmp_name'];
+        $picture=htmlentities($_FILES["image"]['name']) ;
+        $temp_img=htmlentities($_FILES['image']['tmp_name']);
 
         if($name=="" or $desc=="" or $quantity=="" or $price=="" or $picture==""){
             echo '  <div class="message" id="message">
@@ -114,7 +114,7 @@
                     </div>
 
                
-                        <textarea name="desc" id="" cols="30" rows="10" placeholder="item description"></textarea>
+                        <textarea name="desc" id="" cols="30" rows="10" placeholder="item description">food</textarea>
                  
 
                     <button name="submit">submit</button>
@@ -125,5 +125,74 @@
 
   
         </div>
+
+        <footer>
+            <div class="cent">
+                <div class="anchor">
+                    <div class="foot_cont">
+                    <div class="cont_box">
+                            <div class="ico_base">
+                            <i class="fa-solid fa-location-dot"></i>
+                            </div>
+
+                            <div class="the_text">
+                                <h3>ADDRESS</h3>
+                                <h4>Babcock University</h4>
+                            </div>
+                            </div>
+                    </div>
+
+                    <div class="foot_cont">
+                    <div class="cont_box">
+                            <div class="ico_base">
+                            <i class="fa-solid fa-phone"></i>
+                            </div>
+
+                            <div class="the_text">
+                                <h3>PHONE</h3>
+                                <h4>08109495127</h4>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="foot_cont">
+                        <div class="cont_box">
+                            <div class="ico_base">
+                            <i class="fa-solid fa-envelope"></i>
+                            </div>
+
+                            <div class="the_text">
+                                <h3>EMAIL</h3>
+                                <h4>vefidi135@gmail.com</h4>
+                            </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="fot">
+                    <div class="fot_card">
+                        <h3>CHOWDOWN THEME</h3>
+
+                        <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
+                    </div>
+
+                    <div class="fot_card">
+                        <h3>SERVICES</h3>
+
+                        <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
+                        </div>
+
+                        <div class="fot_card">
+                        <H3>ADDITIONAL LINKS</H3>
+
+                        <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
+                        </div>
+
+                       
+                </div>
+            </div>
+
+
+      
+        </footer>
 </body>
 </html>

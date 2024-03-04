@@ -30,6 +30,7 @@ if(isset($_GET["in_wish"])){
 }
 
     $food="";
+    $red="";
     $get=mysqli_query($conn, "SELECT * from item order by rand() limit 8");
 
     while($row=mysqli_fetch_assoc($get)){
@@ -41,6 +42,15 @@ if(isset($_GET["in_wish"])){
         $price=$row["price"];
         $category=$row["category"];
         $id=$row["id"];
+
+
+        if($seller!="kfc"){
+            $red=" ";
+        }
+
+        else{
+            $red="red";
+        }
         
 
 
@@ -50,7 +60,7 @@ if(isset($_GET["in_wish"])){
 
         $food.= '        <div class="best_card">
 
-        <div class="card_seller">
+        <div class="card_seller" id="'.$red.'">
         '.$seller.'
         </div>
         <div class="food_img">
@@ -334,7 +344,31 @@ if(isset($_GET["in_wish"])){
                             </div>
                         </div>
                 </div>
+                <div class="fot">
+                    <div class="fot_card">
+                        <h3>CHOWDOWN THEME</h3>
+
+                        <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
+                    </div>
+
+                    <div class="fot_card">
+                        <h3>SERVICES</h3>
+
+                        <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
+                        </div>
+
+                        <div class="fot_card">
+                        <H3>ADDITIONAL LINKS</H3>
+
+                        <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
+                        </div>
+
+                       
+                </div>
             </div>
+
+
+      
         </footer>
 </body>
 </html>
