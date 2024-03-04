@@ -208,7 +208,7 @@
 
     <div class="checkout_cont">
        <h1>Total: ₦<?php echo $total_cost?>.00</h1>
-       <button>checkout</button>
+     <a href="checkout.php">  <button>checkout</button></a>
     </div>
             </div>
         </div>

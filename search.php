@@ -3,7 +3,65 @@
 ?>
 
 
+<?php
+    if(isset($_GET["search"])){
+        $search=$_GET["search"];
+    }
 
+
+    $food="";
+
+    $query=mysqli_query($conn, "SELECT * from item where category='$search' or name='$search' or seller='$search'");
+
+
+    while($row=mysqli_fetch_assoc($query)){
+        
+        $name=$row["name"];
+        $image=$row["image"];
+        $seller=$row["seller"];
+        $price=$row["price"];
+        $category=$row["category"];
+        $id=$row["id"];
+        
+
+
+
+
+
+
+        $food.= '        <div class="best_card">
+
+        <div class="card_seller">
+        '.$seller.'
+        </div>
+        <div class="food_img">
+            <img src="./food_pictures/'.$image.'" alt="">
+        </div>
+
+        <div class="name">
+            <h4>'.$name.'</h4>
+        </div>
+
+        <div class="star_array">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        </div>
+
+        <div class="name">
+            <h4>₦'.$price.'</h4>
+        </div>
+
+        <div class="actions">
+          <a href="add_cart.php?id='.$id.'" class=""> <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div></a>
+           <a href="add_wish.php?id='.$id.'" class=""> <div class="ico"><i class="fa-solid fa-heart"></i></div></a>
+            <a href="desc.php?id='.$id.'#lock"><div class="ico"><i class="fa-solid fa-eye"></i></div></a> 
+        </div>
+    </div>';
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,232 +81,7 @@
 
         <div class="container sec1">
             <div class="cent">
-            <div class="best_card">
-            <div class="card_seller">
-                                kfc
-                            </div>
-                            <div class="food_img">
-                                <img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt="">
-                            </div>
-
-                            <div class="name">
-                                <h4>yellow pasta</h4>
-                            </div>
-
-                            <div class="star_array">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            </div>
-
-                            <div class="name">
-                                <h4>₦8000</h4>
-                            </div>
-
-                            <div class="actions">
-                                <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div>
-                                <div class="ico"><i class="fa-solid fa-heart"></i></div>
-                                <div class="ico"><i class="fa-solid fa-eye"></i></div>
-                            </div>
-                        </div>
-
-                        <div class="best_card">
-                            <div class="food_img">
-                                <img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt="">
-                            </div>
-
-                            <div class="name">
-                                <h4>yellow pasta</h4>
-                            </div>
-
-                            <div class="star_array">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            </div>
-
-                            <div class="name">
-                                <h4>₦8000</h4>
-                            </div>
-
-                            <div class="actions">
-                                <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div>
-                                <div class="ico"><i class="fa-solid fa-heart"></i></div>
-                                <div class="ico"><i class="fa-solid fa-eye"></i></div>
-                            </div>
-                        </div>
-
-                        <div class="best_card">
-                            <div class="food_img">
-                                <img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt="">
-                            </div>
-
-                            <div class="name">
-                                <h4>yellow pasta</h4>
-                            </div>
-
-                            <div class="star_array">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            </div>
-
-                            <div class="name">
-                                <h4>₦8000</h4>
-                            </div>
-
-                            <div class="actions">
-                                <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div>
-                                <div class="ico"><i class="fa-solid fa-heart"></i></div>
-                                <div class="ico"><i class="fa-solid fa-eye"></i></div>
-                            </div>
-                        </div>
-
-                        <div class="best_card">
-                            <div class="food_img">
-                                <img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt="">
-                            </div>
-
-                            <div class="name">
-                                <h4>yellow pasta</h4>
-                            </div>
-
-                            <div class="star_array">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            </div>
-
-                            <div class="name">
-                                <h4>₦8000</h4>
-                            </div>
-
-                            <div class="actions">
-                                <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div>
-                                <div class="ico"><i class="fa-solid fa-heart"></i></div>
-                                <div class="ico"><i class="fa-solid fa-eye"></i></div>
-                            </div>
-                        </div>
-
-                        <div class="best_card">
-                            <div class="food_img">
-                                <img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt="">
-                            </div>
-
-                            <div class="name">
-                                <h4>yellow pasta</h4>
-                            </div>
-
-                            <div class="star_array">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            </div>
-
-                            <div class="name">
-                                <h4>₦8000</h4>
-                            </div>
-
-                            <div class="actions">
-                                <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div>
-                                <div class="ico"><i class="fa-solid fa-heart"></i></div>
-                                <div class="ico"><i class="fa-solid fa-eye"></i></div>
-                            </div>
-                        </div>
-
-                        <div class="best_card">
-                            <div class="food_img">
-                                <img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt="">
-                            </div>
-
-                            <div class="name">
-                                <h4>yellow pasta</h4>
-                            </div>
-
-                            <div class="star_array">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            </div>
-
-                            <div class="name">
-                                <h4>₦8000</h4>
-                            </div>
-
-                            <div class="actions">
-                                <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div>
-                                <div class="ico"><i class="fa-solid fa-heart"></i></div>
-                                <div class="ico"><i class="fa-solid fa-eye"></i></div>
-                            </div>
-                        </div>
-
-                        <div class="best_card">
-                            <div class="food_img">
-                                <img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt="">
-                            </div>
-
-                            <div class="name">
-                                <h4>yellow pasta</h4>
-                            </div>
-
-                            <div class="star_array">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            </div>
-
-                            <div class="name">
-                                <h4>₦8000</h4>
-                            </div>
-
-                            <div class="actions">
-                                <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div>
-                                <div class="ico"><i class="fa-solid fa-heart"></i></div>
-                                <div class="ico"><i class="fa-solid fa-eye"></i></div>
-                            </div>
-                        </div>
-
-                        <div class="best_card">
-                            <div class="food_img">
-                                <img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt="">
-                            </div>
-
-                            <div class="name">
-                                <h4>yellow pasta</h4>
-                            </div>
-
-                            <div class="star_array">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            </div>
-
-                            <div class="name">
-                                <h4>₦8000</h4>
-                            </div>
-
-                            <div class="actions">
-                                <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div>
-                                <div class="ico"><i class="fa-solid fa-heart"></i></div>
-                                <div class="ico"><i class="fa-solid fa-eye"></i></div>
-                            </div>
-                        </div>
+      <?php echo $food?>
             </div>
         </div>
 

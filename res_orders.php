@@ -4,29 +4,7 @@
 
 
 <?php
-  $orders="";
   $query=mysqli_query($conn, "SELECT * FROM orders where buyer='$email'");
-
-  while($row=mysqli_fetch_assoc($query)){
-    $name=$row["name"];
-    $image=$row["image"];
-    $price=$row["price"];
-    $quantity=$row["quantity"];
-    $time=$row["date"];
-    $status=$row["status"];
-
-
-    $orders.= '    <tr>
-    <td><div class="img_con"><img src="./food_pictures/'.$image.'" alt=""></div></td>
-    <td><h3>'.$name.'</h3> </td>
-    <td><h3>₦'.$price.'.00</h3></td>
-    <td><h3>'.$quantity.'</h3></td>
-    <td><h3>'.$time.'</h3></td>
-    <td><h3>'.$status.'</h3></td>
-  </tr>';
-  }
-
-
 ?>
 
 
@@ -71,9 +49,16 @@
   <div class="tbl-content">
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
-    
+        <tr>
+          <td><div class="img_con"><img src="images\southern-living-27338_Green_Chile_Mac_And_Cheese_With_Chicken_303-7416f067f07f4bf3b6b8aaeddff4542b.jpg" alt=""></div></td>
+          <td><h3>food</h3> </td>
+          <td><h3>₦12000</h3></td>
+          <td><h3>6</h3></td>
+          <td><h3>10/3/24 12:30</h3></td>
+          <td><h3>pending confirmation</h3></td>
+        </tr>
 
-      <?php echo $orders?>
+ 
 
       </tbody>
     </table>
