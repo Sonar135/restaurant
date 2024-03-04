@@ -11,6 +11,15 @@
         }
      
      }
+
+
+
+     if(isset($_POST["search"])){
+        $search=$_POST["data"];
+
+        header("location: search.php?q=$search");
+        
+     }
 ?>
 
 
@@ -25,6 +34,17 @@
     <title>ChowDown</title>
 </head>
 <body>
+
+<form action="" method="post"> <div class="search_cont">
+ <div class="cent">
+       <div class="search_input">
+            <input type="text" name="data" placeholder="search">
+            <button name="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+    </div>
+</div></form>
 <div class="nav">
             <div class="cent">
 
@@ -74,7 +94,7 @@
                             </div>
                             </li>
 
-                            <a href="search.php">Search</a>
+                           <li class="search_btn">search</li>
                             ';
                         }
 
@@ -116,7 +136,7 @@
                         }
 
                         if($user_type=="restaurant"){
-                            echo ' <a href="user_orders.php"> <i class="fa-solid fa-cart-shopping"></i></a>  ';
+                            echo ' <a href="res_orders.php"> <i class="fa-solid fa-cart-shopping"></i></a>  ';
                         }
                       
                       }

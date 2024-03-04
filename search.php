@@ -4,14 +4,14 @@
 
 
 <?php
-    if(isset($_GET["search"])){
-        $search=$_GET["search"];
+    if(isset($_GET["q"])){
+        $search=$_GET["q"];
     }
 
 
     $food="";
 
-    $query=mysqli_query($conn, "SELECT * from item where category='$search' or name='$search' or seller='$search'");
+    $query=mysqli_query($conn, "SELECT * from item where category like '%$search%' or name like '%$search%' or seller like '%$search%'");
 
 
     while($row=mysqli_fetch_assoc($query)){
@@ -74,7 +74,9 @@
 <body>
 <div class="bg_container">
             <div class="overlay">
-
+                <div class="cent">
+                    <h1>search: burger</h1>
+                </div>
             </div>
         </div>
 

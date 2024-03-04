@@ -14,13 +14,13 @@
         $email=$_SESSION["email"];
 
 
-        // $query2=mysqli_query($conn, "SELECT * from users where email='$email'");
-        // while($row2=mysqli_fetch_assoc($query2)){
-        //     if($row2['phone']=='' or $row2['address']=''){
-        //         header('location: profile.php?update&error');
-        //     }
+        $query2=mysqli_query($conn, "SELECT * from users where email='$email'");
+        while($row2=mysqli_fetch_assoc($query2)){
+            if($row2['phone']=='' or $row2['address']==''){
+                header('location: account.php?update');
+            }
 
-        // }
+        }
      
 
 

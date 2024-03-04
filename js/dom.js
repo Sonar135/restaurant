@@ -17,6 +17,12 @@ $(window).on("load resize ", function() {
         $(".login").css("display", "flex")
         $(".signup").css("display", "none")
     })
+
+
+    $(".search_btn").click(()=>{
+        $(".search_cont").toggleClass("search_cont_active");
+    })
+    
     
     
     
@@ -27,6 +33,8 @@ $(window).on("load resize ", function() {
     $(".exit").click(()=>{
         $(".edit_overlay").css("display", "none");
     })
+
+    
     
     
     $('#image').change(function(){
