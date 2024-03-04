@@ -35,6 +35,10 @@
 </head>
 <body>
 
+<div class="loader">
+  <img src="images\orange_loading-removebg-preview.png" alt="">
+</div>
+
 <form action="" method="post"> <div class="search_cont">
  <div class="cent">
        <div class="search_input">
@@ -195,4 +199,11 @@
 </body>
 <script src="js/min.js"></script>
 <script src="js/dom.js"></script>
+
+<script>
+      $(window).on("load", ()=>{
+    $(".loader").fadeOut("slow")
+    $("body").css("overflow-y", "scroll");
+  });
+</script>
 </html>

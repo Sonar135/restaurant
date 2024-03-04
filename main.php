@@ -1,5 +1,11 @@
 <?php
     include "header.php";
+
+    if(!isset($_SESSION["id"])){
+        header("location:reg.php");
+      
+      }
+ 
 ?>
 
 <?php
