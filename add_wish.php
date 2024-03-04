@@ -16,6 +16,10 @@
         $id=$_GET["id"];
     }
 
+    if(isset($_GET["category"])){
+        $category=$_GET["category"];
+    }
+
     $get=mysqli_query($conn, "SELECT * from item where id='$id'");
 
     while($row=mysqli_fetch_assoc($get)){
@@ -34,7 +38,14 @@
     $get_cart=mysqli_query($conn, "SELECT * from wishlist where buyer='$email' and food_id='$id'");
 
     if(mysqli_num_rows($get_cart)>0){
-        header("location: main.php?in_wish");
+        if(isset($_GET["category"])){
+            header("location: menu.php?in_wish&category=$category#lock");
+        }
+
+        else{
+            header("location: main.php?in_wish");
+        }
+      
     }
 
     else{
@@ -42,9 +53,18 @@
         values('$name', '$price',  '$image', '$email', '$id')");
 
         if($insert){
-      
 
-        header("location: main.php?wished");
+            
+            if(isset($_GET["category"])){
+                header("location: menu.php?wished&category=$category#lock");
+            }
+    
+
+            else{
+                header("location: main.php?wished");
+            }
+
+      
             
         }
     }

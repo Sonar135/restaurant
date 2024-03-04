@@ -16,6 +16,10 @@
         $id=$_GET["id"];
     }
 
+    if(isset($_GET["category"])){
+        $category=$_GET["category"];
+    }
+
     $get=mysqli_query($conn, "SELECT * from item where id='$id'");
 
     while($row=mysqli_fetch_assoc($get)){
@@ -35,7 +39,14 @@
     $get_cart=mysqli_query($conn, "SELECT * from cart where buyer='$email' and food_id='$id'");
 
     if(mysqli_num_rows($get_cart)>0){
-        header("location: main.php?in_cart");
+        if(isset($_GET["category"])){
+            header("location: menu.php?in_cart&category=$category#lock");
+        }
+
+        else{
+            header("location: main.php?in_cart");
+        }
+      
     }
 
     else{
@@ -47,7 +58,15 @@
 
             $update=mysqli_query($conn, "UPDATE item set quantity='$new_stock' where id='$id' ");
 
-        header("location: main.php?carted");
+            if(isset($_GET["category"])){
+                header("location: menu.php?carted&category=$category#lock");
+            }
+
+            else{
+                header("location: main.php?carted");
+            }
+
+      
             
         }
     }

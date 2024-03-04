@@ -42,18 +42,18 @@
         
                             <div class="menu_cont">
                             <div class="ne">
-                                <a href="menu.php">intercontinental</a>
-                                <a href="">Local</a>
+                                <a href="menu.php?category=international">intercontinental</a>
+                                <a href="menu.php?category=local">Local</a>
                             </div>
         
                             <div class="ne">
-                                <a href="">Fast Food</a>
-                                <a href="">Drinks</a>
+                                <a href="menu.php?category=fast foods">Fast Foods</a>
+                                <a href="menu.php?category=drinks">Drinks</a>
                             </div>
         
                             <div class="ne">
-                                <a href="">Pastries</a>
-                                <a href="">other</a>
+                                <a href="menu.php?category=pastries">Pastries</a>
+                                <a href="menu.php?category=""">other</a>
                             </div>
                             </div>
                             </li>

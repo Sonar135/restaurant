@@ -75,7 +75,7 @@
   </div>
   <div class="tbl-content">
     <table cellpadding="0" cellspacing="0" border="0">
-      <tbody>
+      <tbody id="lock">
      <?php echo $wished?>
 
 
