@@ -25,7 +25,6 @@
         }
     }
 
-
     if(isset($_GET['error'])){
         if($_GET['error']=='invalid_pass'){
             echo '  <div class="message" id="message">
@@ -76,7 +75,7 @@
         $phone=$_POST['phone'];
         $password=$_POST['password'];
         $confirm=$_POST['conpass'];
- 
+        $prefix="coor";
 
 
      
@@ -100,16 +99,16 @@
         exit();
         }
 
-        if(pwd_match($password, $confirm)!== false){
-      
-            header("location: user_auth.php?error=pwd_not_match");
-            exit();
-        }
-
         if (invalid_password($password)) {
             header("location: user_auth.php?error=invalid_pass");
             exit();
  
+        }
+
+        if(pwd_match($password, $confirm)!== false){
+      
+            header("location: user_auth.php?error=pwd_not_match");
+            exit();
         }
 
         if(email_exists($conn, $email)!== false){
@@ -121,7 +120,7 @@
 
      
 
-        create_user($conn, $email, $fname,  $phone, $password, $confirm , $prefix);
+        create_user($conn, $email, $fname,  $phone, $password, $confirm );
     
         
     }
@@ -168,9 +167,6 @@
 
 
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -180,20 +176,27 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="hero">
-    <div class="bg_container">
-            <div class="overlay">
-            <div class="cent">
-                        <h1>SIGN IN USER</h1>
-                   
-                    </div>
+<div class="img_container">
+        <div class="overlay">
+            <div class="container">
+                <div class="cent">
+                <div class="welcome_cont">
+                <h1>User</h1>
+                <span></span>
+               
+            
+             </div>
+                </div>
             </div>
         </div>
 
+    </div>
 
-        <div class="container auth">
+
+
+    <div class="container auth">
             <div class="cent signup">
-                <div class="left" id="super">
+                <div class="left" >
                     <div class="overlay">
 
                     </div>
@@ -203,7 +206,7 @@
                     <h1>SIGN UP</h1>
 
                     <div class="n_e">
-                        <input type="text" placeholder="full name" name="name">
+                        <input type="text" placeholder="full name (surname first)" name="name">
                         <input type="email" placeholder="Email" name="email">
                     </div>
 
@@ -218,6 +221,8 @@
                         <input type="password" placeholder="confirm password" name="conpass">
                     </div>
 
+                    <h4>password must contain 1 uppercase and 1 special character(#%&!*)</h4>
+
                     <button name="signup">sign up</button>
                     <h4 class="has_acc">I have an account</h4>
                 </div></form>  
@@ -226,7 +231,7 @@
 
 
             <div class="cent login">
-                <div class="left stud" id="lock">
+                <div class="left stud" >
                     <div class="overlay">
 
                     </div>
@@ -251,75 +256,5 @@
                 </div></form>  
             </div>
         </div>
-    </div>
-
-    <footer>
-            <div class="cent">
-                <div class="anchor">
-                    <div class="foot_cont">
-                    <div class="cont_box">
-                            <div class="ico_base">
-                            <i class="fa-solid fa-location-dot"></i>
-                            </div>
-
-                            <div class="the_text">
-                                <h3>ADDRESS</h3>
-                                <h4>Babcock University</h4>
-                            </div>
-                            </div>
-                    </div>
-
-                    <div class="foot_cont">
-                    <div class="cont_box">
-                            <div class="ico_base">
-                            <i class="fa-solid fa-phone"></i>
-                            </div>
-
-                            <div class="the_text">
-                                <h3>PHONE</h3>
-                                <h4>08109495127</h4>
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="foot_cont">
-                        <div class="cont_box">
-                            <div class="ico_base">
-                            <i class="fa-solid fa-envelope"></i>
-                            </div>
-
-                            <div class="the_text">
-                                <h3>EMAIL</h3>
-                                <h4>vefidi135@gmail.com</h4>
-                            </div>
-                            </div>
-                        </div>
-                </div>
-                <div class="fot">
-                    <div class="fot_card">
-                        <h3>CHOWDOWN THEME</h3>
-
-                        <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
-                    </div>
-
-                    <div class="fot_card">
-                        <h3>SERVICES</h3>
-
-                        <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
-                        </div>
-
-                        <div class="fot_card">
-                        <H3>ADDITIONAL LINKS</H3>
-
-                        <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
-                        </div>
-
-                       
-                </div>
-            </div>
-
-
-      
-        </footer>
 </body>
 </html>

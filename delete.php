@@ -1,58 +1,60 @@
 <?php
-        ob_start();
-        session_start();
-        include 'connect.php';
-        if(isset($_SESSION["id"])){
-          $email=$_SESSION['email'];
-          $user_type=$_SESSION['user_type'];
-    
-           if($user_type=="restaurant"){
-               $res_id=$_SESSION["name"];
-           }
-        
-        }
+    include "connect.php";
+
+    ob_start();
+    session_start();
+    include 'connect.php';
+    if(isset($_SESSION["id"])){
+      $user_type=$_SESSION['user_type'];
+      $email=$_SESSION['email'];
+    }
 
 
-        if(isset($_GET["id"])){
-            $id=$_GET["id"];
-        }
 
 
-        if(isset($_GET["cart"])){
-            $get_cart=mysqli_query($conn, "SELECT * from cart where food_id='$id' and buyer='$email'");
+    if(isset($_GET["event"])){
+        $id=$_GET["event"];
 
-            $cart_quantity=mysqli_fetch_assoc($get_cart)["quantity"];
+        $delete=mysqli_query($conn, "DELETE from events where id='$id' ");
 
-            $get_stock=mysqli_query($conn, "SELECT * from item where id='$id'");
+        if($delete){
 
-            $stock=mysqli_fetch_assoc($get_stock)["quantity"];
-
-            $delete=mysqli_query($conn, "DELETE from cart where food_id='$id' and buyer='$email' ");
-
-            if($delete){
-                $new_stock=$stock+$cart_quantity;
-                $update_stock=mysqli_query($conn, "UPDATE item set quantity='$new_stock' where id='$id'");
-
-                header("location: cart.php#lock");
+            if(isset($_GET["admin"])){
+                header("location: admin.php#planned");
             }
-        }
 
-
-
-
-        
-        if(isset($_GET["wish"])){
-
-   
-            $delete=mysqli_query($conn, "DELETE from wishlist where food_id='$id' and buyer='$email' ");
-
-            if($delete){
-     
-                header("location: wishlist.php#lock");
+            else{
+                header("location: plan.php#planned");
             }
+         
         }
+    }
+
+
+
+    if(isset($_GET["planner"])){
+        $id=$_GET["planner"];
+
+        $delete=mysqli_query($conn, "DELETE from planners where id='$id' ");
+
+        if($delete){
+            header("location: admin.php");
+        }
+    }
+
+
+    if(isset($_GET["user"])){
+        $id=$_GET["user"];
+
+        $delete=mysqli_query($conn, "DELETE from users where id='$id' ");
+
+        if($delete){
+            header("location: admin.php");
+        }
+    }
 
 
 
 
+  
 ?>

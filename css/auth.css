@@ -7,7 +7,7 @@
     height:100%;
     display:flex;
     box-shadow: var(--shadow);
-    animation: fade_in 1s;
+    animation: fade_in .8s;
 }
 
 
@@ -30,17 +30,28 @@
 
 
 .left{
-    background: url("../images/tls-fingerprinting_.png");
+    background: url("../images/360_F_422304416_DMKZgKwsz7uPMOSK46OUg2BOTLkTsIlv.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 30%;
+}
+
+#super{
+    background: url("../images/DTPGrants.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 30%;
 }
 
 
-
-.left .overlay{
-    background: #0000001f;
+#coor{
+    background: url("../images/istockphoto-1184196223-612x612.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 30%;
 }
+
+
 
 
 .right h1{
@@ -98,3 +109,5 @@ button{
     color:var(--accent);
     cursor:pointer;
 }
+
+

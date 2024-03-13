@@ -1,209 +1,150 @@
 <?php
-     ob_start();
-     session_start();
-     include 'connect.php';
-     if(isset($_SESSION["id"])){
-       $email=$_SESSION['email'];
-       $user_type=$_SESSION['user_type'];
-
-        if($user_type=="restaurant"){
-            $res_id=$_SESSION["name"];
-        }
-     
-     }
-
-
-
-     if(isset($_POST["search"])){
-        $search=$_POST["data"];
-
-        header("location: search.php?q=$search");
-        
-     }
+  ob_start();
+  session_start();
+  include 'connect.php';
+  if(isset($_SESSION["id"])){
+    $user_type=$_SESSION['user_type'];
+    $email=$_SESSION['email'];
+    $user_phone=$_SESSION['phone'];
+    $user_name=$_SESSION['name'];
+  }
 ?>
+
+        <?php
+            if(isset($_SESSION["id"])){
+                if($user_type==''){
+                  
+                }
+            }
+            ?>
 
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/header.css?v=<?php echo time();?>">
     <script src="https://kit.fontawesome.com/b782cf5553.js" crossorigin="anonymous"></script>  
+    <link rel="icon" type="image/x-icon" href="images\kisspng-babcock-university-university-of-ibadan-academic-d-5b1c90eb26da71.7889147215285987631592-removebg-preview.png">
+    <link rel="stylesheet" href="css/header.css?v=<?php echo time();?>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChowDown</title>
+    <title>Planr</title>
 </head>
 <body>
 
 <div class="loader">
-  <img src="images\orange_loading-removebg-preview.png" alt="">
+  <img src="images\8-removebg-preview.png" alt="">
 </div>
+    <div class="nav">
+      <div class="upper">
+        
+      </div>
+        <div class="nav_cont">
+            <div class="logo_cont">
+          <a href="main.php"> <h1>PLANR</h1></a>  
+            </div>
 
-<form action="" method="post"> <div class="search_cont">
- <div class="cent">
-       <div class="search_input">
-            <input type="text" name="data" placeholder="search" id="my_input"> 
-            <button name="search" id="my_btn">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-        </div>
-    </div>
-</div></form>
-<div class="nav">
-            <div class="cent">
-
-            <div class="hanging_menu">
-                <div class="hanging_links">
+            <div class="menu">
                 <ul>
 
-                <?php
-                       if(isset($_SESSION["id"])){
-                        
-                        if($user_type=="user"){
-                            echo '
-                            <a href="main.php">Home</a>
-                            <li id="menu">menu
-        
-                            <div class="menu_cont">
-                            <div class="ne">
-                                <a href="menu.php?category=international">intercontinental</a>
-                                <a href="menu.php?category=local">Local</a>
-                            </div>
-        
-                            <div class="ne">
-                                <a href="menu.php?category=fast foods">Fast Foods</a>
-                                <a href="menu.php?category=drinks">Drinks</a>
-                            </div>
-        
-                            <div class="ne">
-                                <a href="menu.php?category=pastries">Pastries</a>
-                                <a href="menu.php?category=""">other</a>
-                            </div>
-                            </div>
-                            </li>
+                <li>
+                    <a href="main.php">  home</a>
+                  </li>
 
-
-                            <li id="you">you
-
-                            <div class="user_cont">
-                              <div class="ne">
-                                  <a href="account.php">account</a>
-                                  <a href="wishlist.php">wishlist</a>
-                              </div>
           
-                              <div class="ne">
-                                  <a href="orders.php">orders</a>
-                                  <a href="logout.php">logout</a>
-                              </div>
-                            </div>
-                            </li>
-
-                           <li class="search_btn">search</li>
-                            ';
-                        }
+                  
+                  
+                    
+                  <?php
+            if(isset($_SESSION["id"])){
 
 
-                        if($user_type=="restaurant"){
-                            echo '
-                            <a href="stock.php">My Stock</a>
-                            <a href="add_prod.php#lock">Add Product</a>
-                            <a href="logout.php">logout</a>
-                            ';
-                        }
-                 
-                         
+                if($user_type=='planner'){
+                  echo '  <li>
+                  <a href="plan.php">Plan Event</a>
+                </li>
+
+                <li>
+                <a href="chat.php">chat</a>
+              </li>
+              
+              ';
+                }
+
+             
+
+             echo '   <li>
+             <a href="calendar_oop.php">calendar</a>
+           </li>
+           
+
+         
+           ';
+
+           if($user_type=='planner'){
+            echo '  <li>
+            <a href="contact_admin.php"> Contact</a>
+           </li>';
+          }
+            }
+
+
+         
+            ?>
+
+                    
+
+
                       
-                      }
 
 
-                      else{
-                        echo  '<a href="reg.php">login/register</a>';
-                      }
-                ?>
-              
+                   
+
 
                   
+                    
+               
+                 
 
-              
-                  
+                    <?php
+            if(isset($_SESSION["id"])){
+                if($user_type=='admin'){
+                  echo '    <li>
+                  <a href="admin.php">admin</a>
+                 </li>';
+                }
+                echo '  <a href="logout.php">Logout</a>';
+
+            }
+
+            else{
+              echo '     <a href="reg.php">register/login</a>';
+            }
+            ?>
+
+   
+                      
+
+          
                 </ul>
-                </div>
-
-                <div class="cart">
-
-                <?php
-                       if(isset($_SESSION["id"])){
-                        
-                 
-                        if($user_type=="user"){
-                            echo ' <a href="cart.php"> <i class="fa-solid fa-cart-shopping"></i></a>  ';
-                        }
-
-                        if($user_type=="restaurant"){
-                            echo ' <a href="res_orders.php"> <i class="fa-solid fa-cart-shopping"></i></a>  ';
-                        }
-                      
-                      }
-                ?>
-            
-                </div>
-            </div>
-                <div class="logo">
-                        <h1>CHOWDOWN</h1>
-                </div>
-
-                
-
-                <div class="menu">
-                    <div class="contact">
-                        <div class="icon">
-
-                        </div>
-
-                        <div class="text">
-                            <h4>267 Park Avenue</h4>
-                            <h4>New York, NY 90210</h4>
-                        </div>
-                    </div>
-
-                    <div class="contact">
-                         <div class="icon">
-
-                        </div>
-
-                        <div class="text">
-                            <h4>1-800-1234-567</h4>
-                            <h4>Mon – Sat: 9:00–18:00</h4>
-                        </div>
-                        </div>
-
-                        <div class="contact">
-                           <div class="icon">
- 
-                        </div>
-
-                        <div class="text">
-                            <h4>267 Park Avenue</h4>
-                            <h4>New York, NY 90210</h4>
-                        </div>
-                        </div>
-                </div>
             </div>
         </div>
-
-
-     
-
-
-      
+        <span id="line"></span>
+    </div>
 </body>
 <script src="js/min.js"></script>
 <script src="js/dom.js"></script>
 
 <script>
-      $(window).on("load", ()=>{
+  $(window).on("load", ()=>{
     $(".loader").fadeOut("slow")
     $("body").css("overflow-y", "scroll");
   });
 </script>
 </html>
+
+
+
+
+
+

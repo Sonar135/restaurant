@@ -1,258 +1,297 @@
-.sec1{
-    height:900px;
-    margin-top:80px;
-  }
-
-
-  .bg_container{
+.img_container{
     width:100%;
-    height:660px;
+    height:967px;
     position:relative;
-    background: url("../images/stock-photo-beautiful-and-tasty-food-on-a-plate-361383083.jpg")right;
+    background: url('../images/FEAT-Mint-07.jpg') right;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 30%;
 }
 
 
-  .our_best{
+.overlay{
+    position:absolute;
     width:100%;
-    height:800px;
-    margin-top:80px;
-    display:flex;
-    flex-wrap: wrap;
+    height:100%;
+    top:0;
+    left:0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.519);
+}
+
+
+.img_container img{
+    width:1903px;
+    height: 967px;
+}
+
+
+.container{
+    width:100%;
+    height:700px;
+}
+
+.cent{
+    width:1200px;
+    height:100%;
+    margin:0 auto;
+    padding-top:1px;
+}
+
+.we_container{
+    width:1000px;
+    height:250px;
+    float:bottom;
+    margin-top:400px;
+    padding:16px;
+}
+
+.we_container h1{
+    text-align: left;
+    width:700px;
+    color:white;
+    font-size:42px;
+    font-weight:900;
+}
+
+.we_container p{
+    width:800px;
+    text-align: left;
+    color:rgb(212, 208, 208);
+    margin:10px 0;
+    line-height: 26px;
+}
+
+.we_container button{
+    margin:18px 0;
+    padding:16px 20px;
+    background: #f76418;
+    color:white;
+    text-transform: uppercase;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.we_container button:hover{
+    background: #ce5316;
+}
+
+
+.sec1{
+    margin-top:100px;
+}
+
+.sec1 h1{
+    text-align:center;
+}
+
+.sec1{
+    height:900px;
+    margin-top:100px;
+}
+
+
+
+
+
+
+
+
+h1{
+    font-size: 30px;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  table{
+    width:100%;
+    table-layout: fixed;
+  }
+  .tbl-header{
+    background-color: var(--accent);
+    width:100%;
+   }
+  .tbl-content{
+    height:600px;
+    overflow-x:auto;
+    margin-top: 0px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  th{
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    color:white;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  td{
+    /* padding: 15px; */
+    text-align: left;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 12px;
+    color: black;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+  
+  }
+  
+  td h3{
+    color:black;
+    text-align: center;
+    font-weight:600;
+    font-size:18px;
   }
 
-  .best_card{
-    width:260px;
-    height:360px;
-    margin:30px 16px;
-    border-radius:16px 16px 0 0;
+  tr{
+    height:60px;
+  }
+  
+
+  section{
+    margin: 50px auto;
+    width:100%;
+    animation: fade_in 1s;
     box-shadow: var(--shadow);
   }
+  
+  
+  /* follow me template */
 
   
-  .food_img{
-    width:100%;
-    height:160px;
-    display:flex;
-    justify-content:center;
-    align-items: center;
-    overflow: hidden;
-    border-radius:16px 16px 0 0;
+  /* for custom scrollbar for webkit browser*/
+  
+  ::-webkit-scrollbar {
+      width: 6px;
+  } 
+  ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  } 
+  ::-webkit-scrollbar-thumb {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
   }
 
-  .food_img img{
+
+.img_con{
+    width:100px;
+    height:100px;
+    border-radius: 100px;
+    margin:8px auto;
+    overflow:hidden;
+}
+
+  .img_con img{
     width:auto;
     height:100%;
     width:100%;
     object-fit:cover;
   }
 
-  .best_card .name,   .chef_card .name{
-    text-transform: capitalize;
-    color:black;
-    margin:20px 0;
-  }
 
-  .best_card h4,   .chef_card h4{
-    width:100%;
-    text-align: center;
-  }
-
-  .star_array{
-    width:100%;
-    margin:20px 0;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .star_array i{
-    margin:0 5px;
-    color:var(--accent);
-    font-size:18px;
-  }
-
-  .actions{
-    width:100%;
-    height:26px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .actions .ico{
-    width:30px;
-    height:30px;
-    border-radius:4px;
-    margin:0 18px;
-    border: 1px solid var(--accent);
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    cursor:pointer;
-  }
-
-  .ico i{
-    font-size:14px;
-    color:var(--accent);
-  }
-
-
-  .sec2{
-    margin-top:100px;
-    height:600px;
-  }
-
-  .chef_container{
-    width:100%;
-    height:500px;
-    margin-top:80px;
-    display:flex;
-    flex-wrap: wrap;
-  }
-
-  .chef_card{
-    width:260px;
-    height:330px;
-    margin:30px 16px;
-    border-radius:16px 16px 0 0;
-    box-shadow: var(--shadow);
-  }
-
-
-  .chef_img{
-    width:100%;
-    height:180px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .img_circle{
-    width:170px;
-    height:170px;
-    border-radius: 100px;
+  .tb_ico{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
     background: var(--accent);
     display:flex;
     justify-content: center;
     align-items: center;
-    box-shadow: var(--shadow);
+    cursor:pointer;
+    margin:20px 41%;
   }
 
-  .inner_cir{
-    width:150px;
-    height:150px;
-    border-radius: 100px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    overflow:hidden;
-  }
-
-  .inner_cir img{
-    width:auto;
-    height:100%;
-    width:100%;
-    object-fit:cover;
-  }
-
-
-  .chef_card h1{
-    text-align: center;
-    font-size:24px;
-  }
-
-  .chef_card h4{
-    font-size:20px;
-  }
-
-
-  .chef_links{
-    width:100%;
-    height:30px;
-    margin:20px 0;
-    display:flex;
-    justify-content: center;
-  }
-
-
-  .chef_links .cir{
-    width:30px;
-    height:30px;
-    background: var(--disabled);
-    margin:0 7px;
-    border-radius: 100px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .cir i{
-    color:var(--accent);
+  .tb_ico i{
     font-size:18px;
+    color:white;
   }
 
 
-.sec3{
-    margin-top:50px;
-    height:380px;
-}
-
-.bean_cont{
-    width:100%;
-    margin-top:0px;
-    height:280px;
+  .img_container .cent{
     display:flex;
-    justify-content: space-between;
-    padding-top:1px;
-}
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
-
-.beans{
-    width:560px;
-    height:260px;
-    margin:20px 0;
-    border-radius: 16px;
-    background: url("../images/offer_slider_1.png")right;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 30%;
-    padding:38px 0 0 30px;
-}
-
-
-#sec{
-    background: url("../images/offer_slider_2.png")right;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 30%;
-}
-
-
-.beans h4{
-    font-size:24px;
-    color:var(--accent);
-}
-
-.chicken{
-    margin:20px;
-    width:300px;
-    margin:14px 0;
-}
-
-.chicken h1{
-    color:black;
-}
-
-.beans p{
+  .welcome_cont{
+    width:1000px;
+    height:250px;
+    border-radius: 30px;
+    position:relative;
+    border:4px solid white;
+    animation: fade_in 1s;
+  }
+  
+  .welcome_cont .circle{
+    position:absolute;
+    left:-70px;
+    width:180px;
+    height:180px;
+    background: var(--accent);
+    border-radius: 100px;
+    top:20px;
+    border:4px solid white;
+    animation: move 1.8s;
+  }
+  
+  .welcome_cont h1{
+    color:white;
+    font-size:70px;
+    margin:20px 0 10px 0;
+  }
+  
+  .welcome_cont span{
     display:block;
-    width:300px;
-    font-size:15px;
-    font-weight:300;
-    line-height:26px;
-    text-align: left;
-    margin:14px 0;
-}
+    margin:20px auto;
+    border-bottom: 4px solid white;
+    width:540px;
+    animation: grow 1.8s;
+  
+  }
+  
+  
+  @keyframes grow {
+    from{
+      width:0;
+      opacity:0;
+    }
+  
+    to{
+      width:540px;
+      opacity:1;
+    }
+  }
+  
 
+  @keyframes move {
+    from{
+      top:-40px;
+      left:60px;
+    }
+
+    50%{
+      top:-40px;
+      left:-70px;
+    }
+
+    to{
+      left:-70px;
+      top:20px;
+    }
+  }
+  
+  
+  .img_container h4{
+    color:white;
+    text-align: center;
+    margin:20px 0;
+    animation: fade_in 2.8s;
+    font-size:30px;
+    font-weight:600;
+  }
+  
+  .img_container button{
+    animation: fade_in 1s;
+    margin:40px auto;
+  }
