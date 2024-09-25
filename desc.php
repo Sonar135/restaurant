@@ -317,7 +317,7 @@ if(isset($_GET["greater"])){
 
                             <div class="the_text">
                                 <h3>ADDRESS</h3>
-                                <h4>Babcock University</h4>
+                                <!-- <h4>Babcock University</h4> -->
                             </div>
                             </div>
                     </div>
@@ -330,7 +330,7 @@ if(isset($_GET["greater"])){
 
                             <div class="the_text">
                                 <h3>PHONE</h3>
-                                <h4>08109495127</h4>
+                                <!-- <h4>08109495127</h4> -->
                             </div>
                             </div>
                         </div>

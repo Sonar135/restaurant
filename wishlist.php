@@ -116,7 +116,7 @@
 
                             <div class="the_text">
                                 <h3>PHONE</h3>
-                                <h4>08109495127</h4>
+                                <!-- <h4>08109495127</h4> -->
                             </div>
                             </div>
                         </div>
@@ -129,7 +129,7 @@
 
                             <div class="the_text">
                                 <h3>EMAIL</h3>
-                                <h4>vefidi135@gmail.com</h4>
+                                <!-- <h4>vefidi135@gmail.com</h4> -->
                             </div>
                             </div>
                         </div>

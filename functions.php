@@ -3,14 +3,15 @@
 
 
     
-    function create_user($conn, $email, $fname, $phone, $password, $confirm){
+    function create_user($conn, $email, $fname,  $phone, $password, $confirm ){
 
         $user_type="user";
   
-        $insert= "INSERT INTO users (name,  phone,  email,  password, user_type) VALUES (?,?,?,?,?)";   
+        $insert= "INSERT INTO users (name,  phone, email,  password, user_type) VALUES (?,?,?,?,?)";   
         
       
 
+  
 
         $stmt2=mysqli_stmt_init($conn);
 
@@ -22,7 +23,7 @@
         
         $hashed_pwd=password_hash($password, PASSWORD_DEFAULT);
 
-        mysqli_stmt_bind_param($stmt2, 'sssss', $fname, $phone,  $email, $hashed_pwd, $user_type);
+        mysqli_stmt_bind_param($stmt2, 'sssss', $fname, $phone,  $email,  $hashed_pwd, $user_type);
         mysqli_stmt_execute($stmt2);
         mysqli_stmt_close($stmt2);
         
@@ -32,9 +33,9 @@
 
 
 
-    function emptysignup($email, $fname,  $phone, $password, $confirm ){
+    function emptysignup($email, $fname, $phone, $password, $confirm ){
         $result;
-        if($email=="" or $fname==""  or $phone=="" or $password=="" or $confirm=="" ){
+        if($email=="" or $fname=="" or   $phone=="" or $password=="" or $confirm==""){
             $result= true;
         }
         else {
@@ -137,7 +138,7 @@
         $stmt=mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $query)){
-            header("location: user_auth.php?error=stmtfailed");
+            header("location: res_auth.php?error=stmtfailed");
             exit();
         }
     
@@ -181,10 +182,9 @@
 
             $_SESSION["id"]=$uidexist["id"];
             $_SESSION["email"]=$uidexist["email"];
-            $_SESSION["name"]=$uidexist["name"];
             $_SESSION['phone']=$uidexist['phone'];
             $_SESSION['user_type']=$uidexist['user_type'];
-            $_SESSION["name"]=$uidexist["name"];
+            
           
      
    
@@ -211,25 +211,25 @@
 
 
 
-    // creating the planner...............................................................................................................//////////////////////////
+    // creating the restaurant...............................................................................................................//////////////////////////
 
 
 
 
-    function admin_email_exists($conn, $email){
+    function rest_exists($conn, $name){
         $result;
     
-        $query="SELECT * FROM admin WHERE email=?";
+        $query="SELECT * FROM restaurant WHERE name=?";
     
         $stmt=mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $query)){
-            header("location: admin_auth.php?error=stmtfailed");
+            header("location: res_auth.php?error=stmtfailed");
             exit();
         }
     
         
-        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_bind_param($stmt, "s", $name);
         mysqli_stmt_execute($stmt);
         $result= mysqli_stmt_get_result($stmt);
     
@@ -246,31 +246,31 @@
     }
 
 
-    function create_admin($conn, $email, $fname,  $phone, $password, $confirm ){
-        $user_type="admin";
+    function create_restaurant($conn, $email, $fname,  $phone, $password, $confirm ){
+        $user_type="restaurant";
   
-        $insert= "INSERT INTO admin (name,  phone, email,  password, user_type) VALUES (?,?,?,?,?)";
+        $insert= "INSERT INTO restaurant (name,  phone, email,  password, user_type) VALUES (?,?,?,?,?)";
 
         $stmt2=mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt2, $insert)){
-            header("location: admin_auth.php?error=stmtfailed");
+            header("location: res_auth.php?error=stmtfailed");
             exit();
         }
     
         
         $hashed_pwd=password_hash($password, PASSWORD_DEFAULT);
 
-        mysqli_stmt_bind_param($stmt2, 'sssss', $fname, $phone,  $email, $hashed_pwd, $user_type);
+        mysqli_stmt_bind_param($stmt2, 'sssss', $fname, $phone,  $email,  $hashed_pwd, $user_type);
         mysqli_stmt_execute($stmt2);
         mysqli_stmt_close($stmt2);
         
-        header("location: admin_auth.php?error=success");
+        header("location: res_auth.php?error=success");
         exit();
     }
 
 
-    function empty_admin_signup($email, $fname, $phone, $password, $confirm ){
+    function empty_res_signup($email, $fname, $phone, $password, $confirm ){
         $result;
         if($email=="" or $fname=="" or  $phone=="" or $password=="" or $confirm=="" ){
             $result= true;
@@ -284,11 +284,24 @@
 
 
 
-    function admin_login($conn, $email, $password){
-        $uidexist= admin_email_exists($conn, $email);
+    function empty_res_login($name, $password){
+        $result;
+        if($name=="" or $password==""){
+            $result= true;
+        }
+        else {
+            $result=false;
+        } 
+
+        return $result;
+    }
+
+
+    function res_login($conn, $name, $password){
+        $uidexist= rest_exists($conn, $name);
 
         if($uidexist===false){
-            header("location: admin_auth.php?error=wrongLogin");
+            header("location: res_auth.php?error=wrongLogin");
             exit();
         }
 
@@ -296,7 +309,7 @@
         $checkedpwd=password_verify($password, $pwdHashed);
 
         if($checkedpwd===false){
-            header("location: admin_auth.php?error=wrongLogin");
+            header("location: res_auth.php?error=wrongLogin");
             exit();
         }
 
@@ -304,16 +317,15 @@
             session_start();
 
             $_SESSION["id"]=$uidexist["id"];
-            $_SESSION["name"]=$uidexist["name"];
             $_SESSION["email"]=$uidexist["email"];
-            $_SESSION['phone']=$uidexist['phone'];
+            $_SESSION['name']=$uidexist['name'];
             $_SESSION['user_type']=$uidexist['user_type'];
           
      
    
          
 
-            header("location: admin.php");
+            header("location: stock.php");
             exit();
         }
     }
@@ -342,15 +354,15 @@
 
 
 
-    function planner_email_exists($conn, $email){
+    function coor_email_exists($conn, $email){
         $result;
     
-        $query="SELECT * FROM planners WHERE email=?";
+        $query="SELECT * FROM coordinators WHERE email=?";
     
         $stmt=mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $query)){
-            header("location: planner_auth.php?error=stmtfailed");
+            header("location: coor_auth.php?error=stmtfailed");
             exit();
         }
     
@@ -372,26 +384,26 @@
     }
 
 
-    function create_planner($conn, $email, $fname,  $phone, $password, $confirm ){
-        $user_type="planner";
+    function create_coor($conn, $email, $fname,  $phone, $password, $confirm , $prefix){
+        $user_type="coordinator";
   
-        $insert= "INSERT INTO planners (name,  phone, email,   password, user_type) VALUES (?,?,?,?,?)";
+        $insert= "INSERT INTO coordinators (name,  phone, email, prefix,  password, user_type) VALUES (?,?,?,?,?,?)";
 
         $stmt2=mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt2, $insert)){
-            header("location: planner_auth.php?error=stmtfailed");
+            header("location: coor_auth.php?error=stmtfailed");
             exit();
         }
     
         
         $hashed_pwd=password_hash($password, PASSWORD_DEFAULT);
 
-        mysqli_stmt_bind_param($stmt2, 'sssss', $fname, $phone,  $email, $hashed_pwd, $user_type);
+        mysqli_stmt_bind_param($stmt2, 'ssssss', $fname, $phone,  $email, $prefix, $hashed_pwd, $user_type);
         mysqli_stmt_execute($stmt2);
         mysqli_stmt_close($stmt2);
         
-        header("location: planner_auth.php?error=success");
+        header("location: coor_auth.php?error=success");
         exit();
     }
 
@@ -410,11 +422,11 @@
 
 
 
-    function planner_login($conn, $email, $password){
-        $uidexist= planner_email_exists($conn, $email);
+    function coor_login($conn, $email, $password){
+        $uidexist= coor_email_exists($conn, $email);
 
         if($uidexist===false){
-            header("location: planner_auth.php?error=wrongLogin");
+            header("location: coor_auth.php?error=wrongLogin");
             exit();
         }
 
@@ -422,7 +434,7 @@
         $checkedpwd=password_verify($password, $pwdHashed);
 
         if($checkedpwd===false){
-            header("location: planner_auth.php?error=wrongLogin");
+            header("location: coor_auth.php?error=wrongLogin");
             exit();
         }
 
@@ -430,10 +442,10 @@
             session_start();
 
             $_SESSION["id"]=$uidexist["id"];
+            $_SESSION['siwesid']=$uidexist['siwesid'];
             $_SESSION["email"]=$uidexist["email"];
             $_SESSION['phone']=$uidexist['phone'];
             $_SESSION['user_type']=$uidexist['user_type'];
-            $_SESSION["name"]=$uidexist["name"];
           
      
    

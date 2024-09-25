@@ -1,83 +1,104 @@
-$(window).scroll(()=>{
-    console.log(window.scrollY)
-    var scrollPosition = window.scrollY; // Get the current scroll position
+$(window).on("load resize ", function() {
+    var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+    $('.tbl-header').css({'padding-right':scrollWidth});
+  }).resize();
 
+
+
+
+
+  $(document).ready(function() {
+    $(".no_acc").click(()=>{
+        $(".login").css("display", "none")
+        $(".signup").css("display", "flex")
+    })
     
-  
-
-   
-
-    if(scrollPosition>=180 ){
-       $(".upper_nav").addClass("upper_nav_close");
-       $(".nav").css("background", "#04091e85");
-       $("#line").css("border-bottom", "1px solid transparent ");  
-    }
+    $(".has_acc").click(()=>{
+        $(".login").css("display", "flex")
+        $(".signup").css("display", "none")
+    })
 
 
-
-        if(scrollPosition<180 ){
-            $(".upper_nav").removeClass("upper_nav_close");
-            $(".nav").css("background", "transparent");
-            $("#line").css("border-bottom", "1px solid #39353e");  
-    }
-     
+    $(".search_btn").click(()=>{
+        $(".search_cont").toggleClass("search_cont_active");
+        $("#my_input").focus()
+    })
     
+    
+    
+    
+    $('#toggle').click(()=>{
+        $(".edit_overlay").css("display", "flex");
+    })
+    
+    $(".exit").click(()=>{
+        $(".edit_overlay").css("display", "none");
+    })
 
-   
+    $("#my_btn").prop("disabled", true);
 
-})
-
-$(document).ready(function() {
-$(".no_acc").click(()=>{
-    $(".login").css("display", "none")
-    $(".signup").css("display", "flex")
-})
-
-$(".has_acc").click(()=>{
-    $(".login").css("display", "flex")
-    $(".signup").css("display", "none")
-})
-
-
-
-$('#toggle').click(()=>{
-    $(".edit_overlay").css("display", "flex");
-})
-
-$(".exit").click(()=>{
-    $(".edit_overlay").css("display", "none");
-})
-
-
-
-let lists = document.querySelectorAll("#list");
-
-
-lists.forEach(list => {
-    list.addEventListener("click", () => {
-        $("#selected").html(list.innerHTML);
-        $("#myInput").val(list.innerHTML);
+    $("#my_input").on("input", function() {
+        if ($(this).val() !== "") {
+            $("#my_btn").prop("disabled", false);
+        } else {
+            $("#my_btn").prop("disabled", true);
+        }
     });
-});
-
-
-$('#prof').change(function(){
-    // Get the selected file
-    const file = $(this)[0].files[0];
     
-    // Check if a file is selected
-    if (file) {
-        // Get the filename
-        const fileName = file.name;
+
+    
+    
+    
+    
+    $('#image').change(function(){
+        // Get the selected file
+        const file = $(this)[0].files[0];
         
-        // Output the filename
-        console.log("Selected file: " + fileName);
+        // Check if a file is selected
+        if (file) {
+            // Get the filename
+            const fileName = file.name;
+            
+            // Output the filename
+            console.log("Selected file: " + fileName);
+    
+            $(".label").html(fileName);
+           
+        } else {
+            console.log("No file selected");
+        }
+    });
 
-        $(".label").html(fileName);
-       
-    } else {
-        console.log("No file selected");
-    }
-});
 
-})
+
+
+    let lists = document.querySelectorAll("#list");
+
+
+    lists.forEach(list => {
+        list.addEventListener("click", () => {
+            $("#selected").html(list.innerHTML);
+            $("#myInput").val(list.innerHTML);
+        });
+    });
+    
+    
+
+    let value = parseInt($("#value").val());
+
+    $(".plus").click(() => {
+        
+        value = value + 1;
+        $("#value").val(value);
+    });
+    
+    $(".minus").click(() => {
+        if(value>1){
+            value = value - 1;
+            $("#value").val(value);
+        }
+     
+    });
+    
+
+    })
